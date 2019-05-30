@@ -1,7 +1,7 @@
 import os
 
 class Config(object):
-    SECRECT_KEY = os.environ.get("SECRECT_KEY") or "nothing-to-see-here"
+    SECRET_KEY = os.environ.get("SECRET_KEY") or "nothing-to-see-here"
 
 
 # SECRET_KEY - Flask and some of its extensions use it's value as a cryptographic key, useful to generate signatures or tokens.

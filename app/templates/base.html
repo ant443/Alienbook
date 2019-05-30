@@ -1,17 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   {% if title %}
   <title>{{ title }} - Microblog</title>
   {% else %}
   <title>Welcome to Microblog!</title>
   {% endif %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 
 <body>
-  <div>Microblog: <a href="/index">Home</a></div>
-  <hr>
+  <!-- <div>Microblog: <a href="/index">Home</a></div> -->
+  <!-- <nav>
+    <div id="signin_container">
+      <h1 id="logo"><a href="index.html">facebook</a></h1>
+
+      <form id="signin" class="hidden_elem" action="#" method="#" novalidate="1">
+        <div id="first">
+          <label for="email_or_phone">Email or Phone</label>
+          <input class="input1" id="email_or_phone" type="email" name="email_phone">
+        </div>
+        <div id="second">
+          <label for="password">Password</label>
+          <input class="input1" id="password" type="password" name="password">
+        </div>
+        <button id="login_btn1" type="submit">Log In</button>
+        <a id="forgot" href="#">Forgotten account?</a>
+      </form>
+    </div>
+  </nav> -->
+
+  <nav>
+    <div id="signin_container">
+      <h1 id="logo"><a href="index.html">facebook</a></h1>
+      {% if hidden_menu %}
+      <button class="login_btns login_btn3" id="display-login">Log In to Existing Account</button>
+      {% endif %}
+      <form id="signin" action="#" method="#" novalidate="1" {% if hidden_menu %}class="hidden_elem" {% endif %}>
+        <div>
+          <label for="email_or_phone">Email or Phone</label>
+          <input class="input1" id="email_or_phone" type="email" name="email_phone">
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input class="input1" id="password" type="password" name="password">
+        </div>
+        <button class="login_btns login_btn1">Log In</button>
+        <a id="forgot" href="#">Forgotten account?</a>
+      </form>
+    </div>
+  </nav>
   {% block content %}{% endblock %}
 </body>
 
 </html>
+
+<!-- serving css: We needed to place css in a foler named app/static and use url_for in the href -->
+<!-- (backend question) Say you have navbar that appears on every page of your site, but on one page, it has hidden section and an unhide button in that sections place. So on that navbar html, you have <button... near the top, and a hidden class on an element further down. How would you handle that with templates? I thought maybe pass the html for the btn, and hidden class, in variables from the view function to the base template? -->
+<!-- better version: -->
+<!-- (jinja2 templates question) If I have a base template with a navbar inside, and one of my pages needs that navbar but with an extra button appearing inbetween the navbar component, is there a better way than to not use the base template for that page? -->
+<!-- tried tph python, but don't think they understood. -->
+<!-- I mean, he said some have javascript disabled, but it makes sense for this to be a button, as you're on the create account page. -->

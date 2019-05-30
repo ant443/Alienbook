@@ -1,0 +1,471 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+nav {
+  background: linear-gradient(to bottom, #4e69a2, #3b5998 50%, #3b5998);
+  height: 83px;
+  border-bottom: 1px solid black;
+}
+
+#signin_container {
+  width: 980px;
+  margin: 0 auto;
+}
+
+#logo {
+  float: left;
+  font-size: 2.6em;
+  letter-spacing: -1px;
+  margin-top: 28px;
+  font-weight: bold;
+}
+
+#logo a {
+  text-decoration: none;
+  color: white;
+  height: 15px;
+}
+
+#signin {
+  float: right;
+  margin-top: 16px;
+  margin-right: 1px;
+}
+
+#signin div {
+  display: inline-block;
+}
+
+#signin div:nth-child(2) {
+  margin-left: 9px;
+}
+
+#signin label {
+  color: white;
+  display: block;
+  margin-bottom: 6px;
+  font-size: .75em;
+  padding-left: 1px;
+}
+
+.input1 {
+  width: 150px;
+  height: 24px;
+  border-radius: 0;
+  border: 1px solid #1d2a5b;
+}
+
+#forgot {
+  color: #9cb4d8;
+  text-decoration: none;
+  display: block;
+  margin-top: 1px;
+  margin-left: 164px;
+  font-size: 0.75em;
+}
+
+#forgot:hover {
+  text-decoration: underline;
+}
+
+#gradient {
+  background: #e9ebee;
+}
+
+.signup_btns, .login_btns {
+  display: block;
+  color: white;
+  border: 0;
+  border-radius: 2px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.signup_btns:active, .login_btns:active {
+  padding: 0 8px 0px 8px;
+  border: 2px solid #85aeff;
+}
+
+.signup_btns {
+  background: #42b72a;
+}
+
+.signup_btns:hover {
+  background: #36a420;
+}
+
+.signup_btns:active {
+  background: #2b9217;
+}
+
+.login_btns {
+  background: #4267b2;
+}
+
+.login_btns:hover {
+  background: #365899;
+}
+
+.login_btns:active {
+  background: #2a487d;
+}
+
+.login_btn1 {
+  display: inline-block;
+  width: 54px;
+  height: 25px;
+  margin: 0 2px 4px 9px;
+  border: 1px solid #29487d;
+  font-size: 11px;
+}
+
+.login_btn1:active {
+  width: 58px;
+  height: 29px;
+  margin: 0 0 2px 7px;
+}
+
+.login_btn2 {
+  width: 302px;
+  height: 45px;
+  margin: 12px auto 17px auto;
+  font-size: 14px;
+}
+
+.login_btn2:active {
+  width: 306px;
+  height: 49px;
+  margin: 10px auto 15px auto;
+}
+
+.login_btn3 {
+  float: right;
+  display: inline;
+  margin: 31px 4px 4px 4px;
+  width: 165px;
+  height: 25px;
+  border: 1px solid #29487d;
+  font-size: 11px;
+}
+
+.login_btn3:active {
+  padding: 0 8px 0px 8px;
+  border: 0;
+}
+
+.signup_btn1 {
+  position: relative;
+  top: 36px;
+  left: 10px;
+  width: 67px;
+  height: 28px;
+  font-size: 12px;
+}
+
+.signup_btn1:active {
+  width: 71px;
+  height: 32px;
+  left: 8px;
+  top: 34px;
+}
+
+.signup_btn2 {
+  width: 192px;
+  height: 45px;
+  margin: 18px auto 14px auto;
+  font-size: 14px;
+}
+
+.signup_btn2:active {
+  width: 196px;
+  height: 49px;
+  margin: 16px auto 12px auto;
+}
+
+.failed_background {
+  background: #e9ebee;
+  padding: 82px 0;
+}
+
+#login_form_wrapper {
+  background: white;
+  width: 612px;
+  margin: 0 auto;
+  border: 1px solid #dddfe2;
+}
+
+h2 {
+  font-size: 18px;
+  height: 85px;
+  text-align: center;
+  line-height: 99px;
+}
+
+.input2 {
+  display: block;
+  margin: 0 auto;
+  width: 302px;
+  height: 34px;
+  padding: 5px 8px;
+  border: 1px solid #dddfe2;
+}
+
+#email_or_phone2 {
+  margin-bottom: 12px;
+}
+
+#or {
+  text-align: center;
+  position: relative;
+  font-size: 13px;
+}
+
+#or::before, #or::after {
+  content: "";
+  height: 1px;
+  width: 132px;
+  background: #ccd0d5;
+  position: absolute;
+  top: 50%;
+}
+
+#or::before {
+  right: 53%;
+}
+
+#or::after {
+  left: 53%;
+}
+
+#forgot2 {
+  width: 105px;
+  text-decoration: none;
+  font-size: 0.75em;
+  display: block;
+  margin: 0 auto;
+  color: #365899;
+  margin-bottom: 31px;
+}
+
+.signup_background {
+  background: #e9ebee;
+}
+
+.hidden_elem {
+  display: none;
+}
+
+.signup_wrapper {
+  width: 420px;
+  margin: 0 auto;
+  padding-right: 20px;
+}
+
+#h1_su {
+  padding-top: 26px;
+  font-size: 2.5em;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+#h1_su ~ p {
+  margin-top: 16px;
+  font-size: 1.4em;
+}
+
+#signup {
+  margin-top: 23px;
+}
+
+.signup_wrapper .signup-text {
+  border: 0;
+  border-radius: 5px;
+  height: 39px;
+  margin: 0;
+  padding-left: 5px;
+  margin-bottom: 10px;
+  display: block;
+  border: 1px solid #bdc7d8;
+  font-size: 1.1em;
+}
+
+.signup_wrapper .signup-text:nth-of-type(1) {
+  float: left;
+  margin-right: 10px;
+}
+
+.signup_wrapper .signup-text:nth-of-type(2)::after {
+  clear: both;
+}
+
+.signup_wrapper .signup-text:nth-of-type(1),
+.signup_wrapper .signup-text:nth-of-type(2) {
+  width: calc(50% - 5px);
+}
+
+.signup_wrapper .signup-text:nth-of-type(3),
+.signup_wrapper .signup-text:nth-of-type(4) {
+  width: 100%;
+}
+
+#birthday {
+  display: block;
+  margin-top: 23px;
+  font-size: 18px;
+}
+
+#signup select {
+  margin-top: 8px;
+  height: 30px;
+  width: 70px;
+  border: 1px solid #bdc7d8;
+}
+
+#signup select:nth-of-type(1) {
+  width: 60px;
+}
+
+#birthday_link {
+  display: inline-block;
+  font-size: 11px;
+  width: 150px;
+  line-height: 13px;
+  vertical-align: bottom;
+  color: #365899;
+}
+
+#signup a {
+  text-decoration: none;
+}
+
+#signup a:hover {
+  text-decoration: underline;
+}
+
+#signup-div1 {
+  margin-bottom: 13px;
+  padding-right: 10px;
+}
+
+.gender {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.gender span {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 1.05em;
+  height: 30px;
+  padding-top: 4px;
+}
+
+.gender span:nth-of-type(2) {
+  margin-left: 22px;
+}
+
+.gender label {
+  vertical-align: sub;
+}
+
+.gender input {
+  margin: 0;
+}
+
+#signup p {
+  font-size: 0.7em;
+  color: #777;
+  width: 320px;
+  line-height: 15px;
+  margin-bottom: 21px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+#signup-btn {
+  padding: 0;
+  width: 200px;
+  height: 40px;
+  background: linear-gradient(#67ae55, #578843);
+  color: #ffffff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.15em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 1px #a3e287;
+  cursor: pointer;
+  border: 1px solid #3b6e22;
+  margin-bottom: 40px;
+  padding-bottom: 2px;
+}
+
+#signup-btn:active {
+  padding: 0 8px 2px 8px;
+  margin-top: 1px;
+  margin-bottom: 39px;
+}
+
+/*# sourceMappingURL=style.css.map */

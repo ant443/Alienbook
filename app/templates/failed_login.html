@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav>
+  <div id="signin_container">
+    <h1 id="logo"><a href="#">facebook</a></h1>
+    <button class="signup_btns signup_btn1">Sign Up</button>
+  </div>
+</nav>
+<div class="failed_background">
+  <div id="login_form_wrapper">
+    <h2>Log in to Facebook</h2>
+    <form action="#">
+      <div>
+        <input class="input2" type="email" id="email_or_phone2" placeholder="Email address or phone number"
+          aria-label="Email address or phone number">
+        <input class="input2" type="password" id="password2" placeholder="Password" aria-label="Password">
+        <button class="login_btns login_btn2" type="submit">Log In</button>
+        <div id="or">or</div>
+        <button class="signup_btns signup_btn2">Create New Account</button>
+        <a id="forgot2" href="#">Forgotten account?</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

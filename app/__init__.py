@@ -12,6 +12,7 @@ from app import routes
 # __init__.py - In Python, a sub-directory that includes a __init__.py file is considered a package, and can be imported. When you import a package, the __init__.py executes and defines what symbols the package exposes to the outside world.
 
 # __name__ - a variable passed to the Flask class is a Python predefined variable, which is set to the name of the module in which it is used. Flask uses the location of the module passed here as a starting point when it needs to load associated resources
+# In flask docs, it says if you are using a package, it's better for debugging to do this: app = Flask('microblog')
 
 # two entities named app:
 # The package itself(see __init__ description above), which is referenced in the from app import routes statement("The bottom import is a workaround to circular imports").
