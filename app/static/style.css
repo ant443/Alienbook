@@ -468,4 +468,10 @@ button:focus {
   margin-bottom: 39px;
 }
 
+.signup_img {
+  background-image: url("img/dove.png");
+  width: 512px;
+  height: 512px;
+}
+
 /*# sourceMappingURL=style.css.map */

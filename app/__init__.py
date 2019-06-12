@@ -1,10 +1,14 @@
 from flask import Flask
 from config import Config
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config.from_object(Config)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
-from app import routes
+from app import routes, models
 
 
 
@@ -22,3 +26,5 @@ from app import routes
 # The script above simply creates the application object, as an instance of class Flask, imported from the flask package.
 # config - again, lower case c config is the package, uppercase C is the actual class. 
 # app.config.from_object(Config) - Load configurations from separate file(config), into app.config dictionary. "Then, in any of your files you could just import the app object to gain access to that dictionary."
+
+# The database and migration engine instances needed to be created after the application(above stuff). The models module will define the structure of the database.

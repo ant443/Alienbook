@@ -1,27 +1,41 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>Welcome to Microblog!</title>
+  {% endif %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
 
 <nav>
-  <div id="signin_container">
-    <h1 id="logo"><a href="#">facebook</a></h1>
+  <form action="{{ url_for('signup') }}" id="signin_container">
+    <h1 id="logo"><a href="{{ url_for('index') }}">facebook</a></h1>
     <button class="signup_btns signup_btn1">Sign Up</button>
-  </div>
+  </form>
 </nav>
 <div class="failed_background">
   <div id="login_form_wrapper">
     <h2>Log in to Facebook</h2>
-    <form action="#">
+    <form action="{{ url_for('index') }}" method="post" novalidate>
       <div>
         <input class="input2" type="email" id="email_or_phone2" placeholder="Email address or phone number"
-          aria-label="Email address or phone number">
-        <input class="input2" type="password" id="password2" placeholder="Password" aria-label="Password">
+          aria-label="Email address or phone number" name="email_phone">
+        <input class="input2" type="password" id="password2" placeholder="Password" aria-label="password"
+          name="password">
         <button class="login_btns login_btn2" type="submit">Log In</button>
         <div id="or">or</div>
-        <button class="signup_btns signup_btn2">Create New Account</button>
-        <a id="forgot2" href="#">Forgotten account?</a>
       </div>
     </form>
+    <form action="{{ url_for('signup') }}">
+      <button class="signup_btns signup_btn2">Create New Account</button>
+    </form>
+    <a id="forgot2" href="#">Forgotten account?</a>
   </div>
 </div>
-{% endblock %}
