@@ -6,26 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   {% if title %}
-  <title>{{ title }} - Microblog</title>
+  <title>{{ title }}</title>
   {% else %}
-  <title>Welcome to Microblog!</title>
+  <title>Facebook clone</title>
   {% endif %}
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 
 <body>
-  <nav>
-    <div id="signin_container">
-      <h1 id="logo"><a href="{{ url_for('index') }}">facebook</a></h1>
+  <header class="header">
+    <div id="signin-header__container">
+      <h1 id="logo"><a href="{{ url_for('index') }}">facebook clone</a></h1>
       {% if hidden_menu %}
       <button class="login_btns login_btn3" id="display-login">Log In to Existing Account</button>
       {% endif %}
-      <form id="signin" action="{{ url_for('index') }}" method="post" novalidate {% if hidden_menu %}class="hidden_elem"
-        {% endif %}>
+      <form class="signin {{'hidden' if hidden_menu}}" action="{{ url_for('index') }}" method="post" novalidate>
         <div>
-          <label for="email_or_phone">Email or Phone</label>
-          <input class="input1" id="email_or_phone" type="email" name="email_phone">
+          <label for="email">Email or Phone</label>
+          <input class="input1" id="email" type="email" name="email">
         </div>
         <div>
           <label for="password">Password</label>
@@ -35,11 +34,8 @@
         <a id="forgot" href="#">Forgotten account?</a>
       </form>
     </div>
-  </nav>
+  </header>
   {% block content %}{% endblock %}
 </body>
 
 </html>
-
-<!-- learned -->
-<!-- serving css: We needed to place css in a foler named app/static and use url_for in the href -->

@@ -2,65 +2,67 @@
 
 {% block flash %}
 
-<div class="signup_background">
+<main>
   <!-- <div class="signup_img"></div> -->
-  <div class="signup_wrapper">
-    <h1 id="h1_su">Create an account</h1>
-    <p>It's free and always will be.</p>
-    <form id="signup" action="">
-      <input type="text" class="signup-text" id="First name" placeholder="First name" aria-label="First name">
-      <input type="text" class="signup-text" id="Surname" placeholder="Surname" aria-label="Surname">
-      <input type="email" class="signup-text" id="email_or_phone3" placeholder="Mobile number or email address"
-        aria-label="Mobile number or email address">
-      <input type="password" class="signup-text" id="password3" placeholder="New password" aria-label="New password">
-      <div id="signup-div1">
-        <label id="birthday" for="birthday">Birthday</label>
-        <select name="birthday_day" id="day" aria-label="day" title="day">
-          {% for i in range(32) %}
-          {% if i > 0 %}
-          <option value="{{ i }}">{{ i }}</option>
-          {% else %}
-          <option value="{{ i }}">Day</option>
-          {% endif %}
+  <div class="signup">
+    <h2 class="signup__heading">Create an account</h2>
+    <p class="signup__message">It's free and always will be.</p>
+    <form class="signup__form" action="">
+      <input type="text" class="signup__input signup__input--display_float signup__input--width_small" name="firstname"
+        placeholder="First name" aria-label="First name" required>
+      <input type="text" class="signup__input signup__input--width_small" name="surname" placeholder="Surname"
+        aria-label="Surname" required>
+      <input type="email" class="signup__input" name="email" placeholder="Mobile number or email address"
+        aria-label="Mobile number or email address" required>
+      <input type="password" class="signup__input" name="newpass" placeholder="New password" aria-label="New password"
+        required>
+      <fieldset class="birthdate">
+        <legend class="birthdate__legend">Birthdate</legend>
+        <select class="birthdate__select birthdate__select--width_shorter" name="birthdate_day" aria-label="day"
+          title="Day">
+          <option value="{{ 0 }}">Day</option>
+          {% for i in range(31) %}
+          <option value="{{ i+1 }}">{{ i+1 }}</option>
           {% endfor %}
         </select>
-        <select name="birthday_month" id="month" aria-label="month">
+        <select class="birthdate__select" name="birthdate_month" aria-label="month" title="Month">
           {% set months = [ "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec" ] %}
           {% for i in range(13) %}
           <option value="{{ i }}">{{ months[i] }}</option>
           {% endfor %}
         </select>
-        <select name="birthday_year" id="year" aria-label="year">
+        <select class="birthdate__select" name="birthdate_year" aria-label="year" title="Year">
           <option value="0">Year</option>
           {% for i in range(year, 1904, -1) %}
           <option value="{{ i }}">{{ i }}</option>
           {% endfor %}
         </select>
-        <a id="birthday_link" href="#">Why do I need to provide my date of birth?</a>
-      </div>
-      <div class="gender">
-        <span>
-          <input type="radio" id="female" name="sex">
-          <label for="female">Female</label>
+        <a class="birthdate__link" href="#">Why do I need to provide my date of birth?</a>
+      </fieldset>
+      <fieldset class="signup__gender">
+        <legend class="signup__gender-legend">Gender</legend>
+        <span class="signup__gender-span">
+          <input type="radio" class="signup__gender-input" id="female" name="sex">
+          <label class="signup__gender-label" for="female">Female</label>
         </span>
-        <span>
-          <input type="radio" id="male" name="sex">
-          <label for="male">Male</label>
+        <span class="signup__gender-span signup__gender-span--margin_wide">
+          <input type="radio" class="signup__gender-input" id="male" name="sex">
+          <label class="signup__gender-label" for="male">Male</label>
         </span>
-      </div>
-      <p>By clicking Sign up, you agree to our <a href="#">Terms</a>. Learn how we collect, use and share your data
-        in our <a href="#">Data
-          Policy</a>
-        and how we use cookies and similar technology in our <a href="#">Cookie Policy</a>. You may receive SMS
-        notifications
-        from us and can opt out at any time.</p>
-      <button id="signup-btn">Sign Up</button>
+      </fieldset>
+      <p class="signup__terms">By clicking Sign up, you agree to our <a href="#" class="signup__link">Terms</a>. Learn
+        how we collect, use
+        and share your data
+        in our <a href="#" class="signup__link">Data Policy</a> and how we use cookies and similar technology in our
+        <a href="#" class="signup__link">Cookie Policy</a>. You may receive SMS notifications from us and can opt out
+        at
+        any time.</p>
+      <button class="signup__btn">Sign Up</button>
     </form>
   </div>
-</div>
+</main>
 
 {% endblock %}
 
 <!-- extends statement links this template to base template, so jinja2 knows to embed it inside base when rendering. -->
 <!-- block - both templates have block statements named content, telling jinja2 how to combine the templates. -->
-<!-- The selected date is not valid square red border lightpink bg if 31st/feb -->

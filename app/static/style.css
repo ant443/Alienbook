@@ -60,13 +60,13 @@ html {
   box-sizing: border-box;
 }
 
-nav {
+.header {
   background: linear-gradient(to bottom, #4e69a2, #3b5998 50%, #3b5998);
   height: 83px;
   border-bottom: 1px solid black;
 }
 
-#signin_container {
+#signin-header__container {
   width: 980px;
   margin: 0 auto;
 }
@@ -85,21 +85,21 @@ nav {
   height: 15px;
 }
 
-#signin {
+.signin {
   float: right;
   margin-top: 16px;
   margin-right: 1px;
 }
 
-#signin div {
+.signin div {
   display: inline-block;
 }
 
-#signin div:nth-child(2) {
+.signin div:nth-child(2) {
   margin-left: 9px;
 }
 
-#signin label {
+.signin label {
   color: white;
   display: block;
   margin-bottom: 6px;
@@ -255,7 +255,7 @@ nav {
   border: 1px solid #dddfe2;
 }
 
-h2 {
+.tempclass1 {
   font-size: 18px;
   height: 85px;
   text-align: center;
@@ -308,37 +308,37 @@ h2 {
   margin-bottom: 31px;
 }
 
-.signup_background {
-  background: #e9ebee;
-}
-
-.hidden_elem {
+.hidden {
   display: none;
 }
 
-.signup_wrapper {
+main {
+  background: #e9ebee;
+}
+
+.signup {
   width: 420px;
   margin: 0 auto;
   padding-right: 20px;
 }
 
-#h1_su {
+.signup__heading {
   padding-top: 26px;
   font-size: 2.5em;
   font-weight: bold;
   white-space: nowrap;
 }
 
-#h1_su ~ p {
+.signup__message {
   margin-top: 16px;
   font-size: 1.4em;
 }
 
-#signup {
+.signup__form {
   margin-top: 23px;
 }
 
-.signup_wrapper .signup-text {
+.signup__input {
   border: 0;
   border-radius: 5px;
   height: 39px;
@@ -346,74 +346,75 @@ h2 {
   padding-left: 5px;
   margin-bottom: 10px;
   display: block;
+  width: 100%;
   border: 1px solid #bdc7d8;
   font-size: 1.1em;
 }
 
-.signup_wrapper .signup-text:nth-of-type(1) {
+.signup__input--display_float {
   float: left;
   margin-right: 10px;
 }
 
-.signup_wrapper .signup-text:nth-of-type(2)::after {
-  clear: both;
-}
-
-.signup_wrapper .signup-text:nth-of-type(1),
-.signup_wrapper .signup-text:nth-of-type(2) {
+.signup__input--width_small {
   width: calc(50% - 5px);
 }
 
-.signup_wrapper .signup-text:nth-of-type(3),
-.signup_wrapper .signup-text:nth-of-type(4) {
-  width: 100%;
-}
-
-#birthday {
-  display: block;
+.birthdate {
   margin-top: 23px;
-  font-size: 18px;
 }
 
-#signup select {
-  margin-top: 8px;
+.birthdate__legend {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: grey;
+}
+
+.birthdate__select {
   height: 30px;
   width: 70px;
   border: 1px solid #bdc7d8;
 }
 
-#signup select:nth-of-type(1) {
+.birthdate__select--width_shorter {
   width: 60px;
 }
 
-#birthday_link {
+.birthdate__link {
   display: inline-block;
   font-size: 11px;
   width: 150px;
   line-height: 13px;
   vertical-align: bottom;
   color: #365899;
-}
-
-#signup a {
   text-decoration: none;
 }
 
-#signup a:hover {
+.birthdate__link:hover {
   text-decoration: underline;
 }
 
-#signup-div1 {
-  margin-bottom: 13px;
-  padding-right: 10px;
+.signup__link {
+  text-decoration: none;
 }
 
-.gender {
+.signup__link:hover {
+  text-decoration: underline;
+}
+
+.signup__gender-legend {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: grey;
+}
+
+.signup__gender {
+  margin-top: 13px;
   margin-bottom: 10px;
   display: flex;
 }
 
-.gender span {
+.signup__gender-span {
   margin-left: 10px;
   font-weight: bold;
   font-size: 1.05em;
@@ -421,19 +422,19 @@ h2 {
   padding-top: 4px;
 }
 
-.gender span:nth-of-type(2) {
+.signup__gender-span--margin_wide {
   margin-left: 22px;
 }
 
-.gender label {
+.signup__gender-label {
   vertical-align: sub;
 }
 
-.gender input {
+.signup__gender-input {
   margin: 0;
 }
 
-#signup p {
+.signup__terms {
   font-size: 0.7em;
   color: #777;
   width: 320px;
@@ -441,12 +442,9 @@ h2 {
   margin-bottom: 21px;
 }
 
-button:focus {
-  outline: 0;
-}
-
-#signup-btn {
-  padding: 0;
+.signup__btn {
+  position: relative;
+  padding: 6px 15px 8px 15px;
   width: 200px;
   height: 40px;
   background: linear-gradient(#67ae55, #578843);
@@ -459,19 +457,19 @@ button:focus {
   cursor: pointer;
   border: 1px solid #3b6e22;
   margin-bottom: 40px;
-  padding-bottom: 2px;
 }
 
-#signup-btn:active {
-  padding: 0 8px 2px 8px;
-  margin-top: 1px;
-  margin-bottom: 39px;
+.signup__btn:active {
+  top: 1px;
 }
 
-.signup_img {
+.signup__btn:hover, .signup__btn:focus  {
+  background: linear-gradient(#79bb63, #578843);
+}
+
+/* .signup_img {
   background-image: url("img/dove.png");
   width: 512px;
   height: 512px;
-}
+} */
 
-/*# sourceMappingURL=style.css.map */
