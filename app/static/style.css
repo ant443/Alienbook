@@ -66,12 +66,12 @@ html {
   border-bottom: 1px solid black;
 }
 
-#signin-header__container {
+.header__inner {
   width: 980px;
   margin: 0 auto;
 }
 
-#logo {
+.text-logo {
   float: left;
   font-size: 2.6em;
   letter-spacing: -1px;
@@ -79,7 +79,7 @@ html {
   font-weight: bold;
 }
 
-#logo a {
+.text-logo__link {
   text-decoration: none;
   color: white;
   height: 15px;

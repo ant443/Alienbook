@@ -14,12 +14,12 @@
   <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 
-<nav>
-  <form action="{{ url_for('signup') }}" id="signin_container">
-    <h1 id="logo"><a href="{{ url_for('index') }}">facebook</a></h1>
+<header class="header">
+  <div class="header__inner">
+    <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">facebook</a></h1>
     <button class="signup_btns signup_btn1">Sign Up</button>
-  </form>
-</nav>
+  </div>
+</header>
 <div class="failed_background">
   <div id="login_form_wrapper">
     <h2 class="tempclass1">Log in to Facebook</h2>
