@@ -131,8 +131,12 @@ html {
   background: #e9ebee;
 }
 
-.signup_btns, .login_btns {
-  display: block;
+form div {
+  text-align: center;
+}
+
+
+.login-button {
   color: white;
   border: 0;
   border-radius: 2px;
@@ -140,107 +144,91 @@ html {
   cursor: pointer;
   transition: background 0.2s ease;
   white-space: nowrap;
-}
-
-.signup_btns:active, .login_btns:active {
-  padding: 0 8px 0px 8px;
-  border: 2px solid #85aeff;
-}
-
-.signup_btns {
-  background: #42b72a;
-}
-
-.signup_btns:hover {
-  background: #36a420;
-}
-
-.signup_btns:active {
-  background: #2b9217;
-}
-
-.login_btns {
-  background: #4267b2;
-}
-
-.login_btns:hover {
-  background: #365899;
-}
-
-.login_btns:active {
-  background: #2a487d;
-}
-
-.login_btn1 {
-  display: inline-block;
-  width: 54px;
-  height: 25px;
-  margin: 0 2px 4px 9px;
-  border: 1px solid #29487d;
-  font-size: 11px;
-}
-
-.login_btn1:active {
-  width: 58px;
-  height: 29px;
-  margin: 0 0 2px 7px;
-}
-
-.login_btn2 {
   width: 302px;
   height: 45px;
-  margin: 12px auto 17px auto;
-  font-size: 14px;
+  font-size: .875rem;
+  background-color: #4267b2;
+  margin: 12px;
 }
 
-.login_btn2:active {
-  width: 306px;
-  height: 49px;
-  margin: 10px auto 15px auto;
+.login-button:hover {
+  background-color: #365899;
 }
 
-.login_btn3 {
-  float: right;
-  display: inline;
-  margin: 31px 4px 4px 4px;
-  width: 165px;
-  height: 25px;
-  border: 1px solid #29487d;
-  font-size: 11px;
+.login-button:active {
+  background-color: #2a487d;
 }
 
-.login_btn3:active {
-  padding: 0 8px 0px 8px;
+.login-button:focus {
+  padding: 0 8px;
+  box-shadow: 0 0 1px 2px #85aeff;
+}
+
+.login-button::-moz-focus-inner {
   border: 0;
 }
 
-.signup_btn1 {
-  position: relative;
-  top: 36px;
-  left: 10px;
-  width: 67px;
-  height: 28px;
-  font-size: 12px;
+.login-button--small {
+  width: auto;
+  height: 25px;
+  border: 1px solid #29487d;
+  font-size: .688rem;
 }
 
-.signup_btn1:active {
-  width: 71px;
-  height: 32px;
-  left: 8px;
-  top: 34px;
+.login-button--small:focus {
+  border: 1px solid rgba(0,0,0,0);
 }
 
-.signup_btn2 {
+.login-button--float {
+  float: right;
+  margin: 31px 4px 4px 4px;
+}
+
+.signup-link {
+  display: inline-block;
+  color: white;
+  border: 0;
+  border-radius: 2px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+  background: #42b72a;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 8px;
+  outline: 0;
+  margin: 12px;
   width: 192px;
   height: 45px;
-  margin: 18px auto 14px auto;
-  font-size: 14px;
+  line-height: 45px;
+  font-size: .875rem;
 }
 
-.signup_btn2:active {
-  width: 196px;
-  height: 49px;
-  margin: 16px auto 12px auto;
+.signup-link:hover {
+  background-color: #36a420;
+}
+
+.signup-link:active {
+  background-color: #2b9217;
+}
+
+.signup-link:focus {
+  box-shadow: 0 0 1px 2px #85aeff;
+}
+
+.signup-link--small {
+  width: auto;
+  height: 28px;
+  line-height: 28px;
+  font-size: .75rem;
+}
+
+.signup-link--relative {
+  position: relative;
+  top: 24px;
+  left: -1px;
 }
 
 .failed_background {
@@ -253,6 +241,7 @@ html {
   width: 612px;
   margin: 0 auto;
   border: 1px solid #dddfe2;
+  text-align: center;
 }
 
 .tempclass1 {
@@ -279,6 +268,7 @@ html {
   text-align: center;
   position: relative;
   font-size: 13px;
+  margin: 5px 0 6px 0;
 }
 
 #or::before, #or::after {

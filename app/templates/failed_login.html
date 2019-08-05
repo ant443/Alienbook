@@ -17,7 +17,7 @@
 <header class="header">
   <div class="header__inner">
     <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">facebook</a></h1>
-    <button class="signup_btns signup_btn1">Sign Up</button>
+    <button class="signup-link signup-link--small signup-link--relative">Sign Up</button>
   </div>
 </header>
 <div class="failed_background">
@@ -29,13 +29,11 @@
           aria-label="Email address or phone number" name="email_phone">
         <input class="input2" type="password" id="password2" placeholder="Password" aria-label="password"
           name="password">
-        <button class="login_btns login_btn2" type="submit">Log In</button>
+        <button class="login-button login-button--reposition2">Log In</button>
         <div id="or">or</div>
       </div>
     </form>
-    <form action="{{ url_for('signup') }}">
-      <button class="signup_btns signup_btn2">Create New Account</button>
-    </form>
+    <a class="signup-link" href="">Create New Account</a>
     <a id="forgot2" href="#">Forgotten account?</a>
   </div>
 </div>
