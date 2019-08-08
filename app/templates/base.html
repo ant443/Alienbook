@@ -19,22 +19,21 @@
     <div class="header__inner">
       <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">facebook clone</a></h1>
       {% if hidden_menu %}
-      <!-- <button class="login_btns login_btn3" type="button">Log In to Existing Account</button> -->
       <button class="login-button login-button--small login-button--float" id="display-login" type="button">Log In
         to Existing
         Account</button>
       {% endif %}
       <form class="signin {{'hidden' if hidden_menu}}" action="{{ url_for('index') }}" method="post" novalidate>
         <div>
-          <label for="email">Email or Phone</label>
-          <input class="input1" id="email" type="email" name="email">
+          <label class="signin__label" for="email">Email or Phone</label>
+          <input class="signin__input" id="email" type="email" name="email">
         </div>
         <div>
-          <label for="password">Password</label>
-          <input class="input1" id="password" type="password" name="password">
+          <label class="signin__label" for="password">Password</label>
+          <input class="signin__input" id="password" type="password" name="password">
         </div>
-        <button class="login-button login-button--small">Log in</button>
-        <a id="forgot" href="#">Forgotten account?</a>
+        <button class="login-button login-button--small login-button--grid-end">Log In</button>
+        <a class="signin__link" href="#">Forgotten account?</a>
       </form>
     </div>
   </header>
