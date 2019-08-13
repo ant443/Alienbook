@@ -27,7 +27,9 @@ def index():
         else:
             return redirect(url_for("failedlogin"))
 
-    return render_template("index.html", title=title, user=user, year=year)
+    return render_template(
+        "index.html", title=title, user=user, year=year, particlejs=True
+    )
 
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -43,6 +45,11 @@ def signup():
 @app.route("/failedlogin", methods=["POST", "GET"])
 def failedlogin():
     return render_template("failed_login.html", title="Log in to Facebook | Facebook")
+
+
+@app.route("/parti", methods=["GET"])
+def parti():
+    return render_template("particlejs_fun.html")
 
 
 # decorators can be used to register the function that follows them as a callback for a certain event. When a web browser requests either of these two URLs "/" or "index", index will be called and it's return value will be passed back to the browser as a response.
