@@ -13,14 +13,12 @@ def valid_user(username, userpass):
 @app.route("/index", methods=["POST", "GET"])
 def index():
     user = {"username": "Miguel"}
-    title = "Facebook clone - log in or sign up"
+    title = "Alienbook - log in or sign up"
     year = year = datetime.now().year
     # error = None
     if request.method == "POST":
-        if (
-            request.form["email_phone"] == "admin"
-            and request.form["password"] == "secret"
-        ):
+        if request.form["email"] == "admin" and request.form["password"] == "secret":
+            print("here")
             flash("login successful, welcome user")
             return redirect(url_for("index"))
             # (note: fb has completely different page when logged in, but still shows www.facebook.com in the address bar)
@@ -36,7 +34,7 @@ def index():
 def signup():
     return render_template(
         "signup.html",
-        title="Sign up to Facebook clone | Facebook clone",
+        title="Sign up for Alienbook | Alienbook",
         hidden_menu=True,
         year=datetime.now().year,
     )
@@ -44,12 +42,7 @@ def signup():
 
 @app.route("/failedlogin", methods=["POST", "GET"])
 def failedlogin():
-    return render_template("failed_login.html", title="Log in to Facebook | Facebook")
-
-
-@app.route("/parti", methods=["GET"])
-def parti():
-    return render_template("particlejs_fun.html")
+    return render_template("failed_login.html", title="Log in to Alienbook | Alienbook")
 
 
 # decorators can be used to register the function that follows them as a callback for a certain event. When a web browser requests either of these two URLs "/" or "index", index will be called and it's return value will be passed back to the browser as a response.

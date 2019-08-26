@@ -16,24 +16,22 @@
 
 <header class="header">
   <div class="header__inner">
-    <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">facebook</a></h1>
-    <a href="#" class="signup-link signup-link--small signup-link--relative">Sign Up</a>
+    <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">Alienbook</a></h1>
+    <a href="{{ url_for('signup') }}" class="signup-link signup-link--small signup-link--relative">Sign Up</a>
   </div>
 </header>
 <main class="main main--failed">
-  <div id="login_form_wrapper">
-    <h2 class="tempclass1">Log in to Facebook</h2>
+  <div class="login-menu">
+    <h2 class="login-menu__heading">Log in to Facebook</h2>
     <form action="{{ url_for('index') }}" method="post" novalidate>
-      <div id="form-text-align">
-        <input class="input2" type="email" id="email_or_phone2" placeholder="Email address or phone number"
-          aria-label="Email address or phone number" name="email_phone">
-        <input class="input2" type="password" id="password2" placeholder="Password" aria-label="password"
-          name="password">
-        <button class="login-button login-button--reposition2">Log In</button>
-        <div id="or">or</div>
-      </div>
+      <input class="login-large__input" type="email" placeholder="Email address or phone number"
+        aria-label="Email address or phone number" name="email">
+      <input class="login-large__input" type="password" placeholder="Password" aria-label="password" name="password">
+      <button class="login-button login-button--reposition2">Log In</button>
     </form>
-    <a class="signup-link" href="">Create New Account</a>
-    <a id="forgot2" href="#">Forgotten account?</a>
-  </div>
+    <div class="login-menu__or">or</div>
+    <div>
+      <a class="signup-link" href="{{ url_for('signup') }}">Create New Account</a>
+      <a class="login-menu__forgot" href="#">Forgotten account?</a>
+    </div>
 </main>

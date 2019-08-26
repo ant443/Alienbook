@@ -3,3 +3,4 @@ venv/
 .vscode/
 dev_files/
 app.db
+macros.html

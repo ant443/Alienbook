@@ -125,14 +125,6 @@ html, button {
   text-decoration: underline;
 }
 
-#gradient {
-  background: #e9ebee;
-}
-
-#form-text-align {
-  text-align: center;
-}
-
 .login-button {
   color: white;
   border: 0;
@@ -235,7 +227,7 @@ html, button {
   padding: 82px 0;
 }
 
-#login_form_wrapper {
+.login-menu {
   background: white;
   width: 612px;
   margin: 0 auto;
@@ -243,14 +235,14 @@ html, button {
   text-align: center;
 }
 
-.tempclass1 {
+.login-menu__heading {
   font-size: 18px;
   height: 85px;
   text-align: center;
   line-height: 99px;
 }
 
-.input2 {
+.login-large__input {
   display: block;
   margin: 0 auto;
   width: 302px;
@@ -260,14 +252,14 @@ html, button {
   margin-bottom: 12px;
 }
 
-#or {
+.login-menu__or {
   text-align: center;
   position: relative;
   font-size: 13px;
   margin: 17px 0 6px 0;
 }
 
-#or::before, #or::after {
+.login-menu__or::before, .login-menu__or::after {
   content: "";
   height: 1px;
   width: 132px;
@@ -276,22 +268,25 @@ html, button {
   top: 50%;
 }
 
-#or::before {
+.login-menu__or::before {
   right: 53%;
 }
 
-#or::after {
+.login-menu__or::after {
   left: 53%;
 }
 
-#forgot2 {
+.login-menu__forgot {
+  display: block;
   width: 105px;
+  margin: 0 auto 31px auto;
   text-decoration: none;
   font-size: 0.75em;
-  display: block;
-  margin: 0 auto;
   color: #365899;
-  margin-bottom: 31px;
+}
+
+.login-forgot:hover {
+  text-decoration: underline;
 }
 
 .hidden {
@@ -314,39 +309,25 @@ html, button {
 }
 
 .particlesImg {
-  /* background-color: orange; */
   margin-top: 25px;
-  /* margin-right: 5px; */
-  /* margin-right: 66px; */
-  /* padding-right: 66px; */
   max-width: 500px;
-
 }
 
 .particlesImg__text {
-  /* background-color: lightblue; */
   padding: 15px 0;
   font-size: 1.3em;
-  /* font-weight: bold; */
   line-height: 1.4em;
-  /* width: 500px; */
-  /* margin-right: 66px; */
-  /* padding-right: 66px; */
 }
 
 #particles-js {
   width: 500px;
   height: 231px;
-  /* margin: 0 auto; */
   background-image: url("img/map.png");
   background-repeat: no-repeat;
 }
 
 .signup {
   width: 400px;
-  /* margin: 0 auto; */
-  /* padding-right: 20px; */
-  /* max-width: 400px; */
 }
 
 .signup__heading {
@@ -429,16 +410,15 @@ html, button {
   text-decoration: underline;
 }
 
-.signup__gender-legend {
-  font-size: 18px;
-  margin-bottom: 6px;
-  color: grey;
-}
-
 .signup__gender {
   margin-top: 13px;
   margin-bottom: 10px;
-  display: flex;
+}
+
+.signup__gender-legend {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: grey;
 }
 
 .signup__gender-span {
@@ -496,4 +476,13 @@ html, button {
 
 .main-inner--signup {
   padding: 0 290px;
+}
+
+.footer {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.footer-info {
+  margin: 20px 10px;
 }
