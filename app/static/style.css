@@ -1,3 +1,14 @@
+/* /////////////////////////// */
+/* Table of contents */
+/* 8: Generic styles */
+/* 72: Logged out styles */
+/* index.html */
+/* signup.html */
+/* failedlogin.html */
+/* /////////////////////////// */
+
+/* Generic styles */
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -60,6 +71,10 @@ html, button {
   box-sizing: border-box;
 }
 
+/* Logged out styles */
+
+/* index.html */
+
 .header {
   background: linear-gradient(to bottom, #4e69a2, #3b5998 50%, #3b5998);
   height: 83px;
@@ -121,7 +136,7 @@ html, button {
   padding-top: 6px;
 }
 
-#signin__link:hover {
+.signin__link:hover {
   text-decoration: underline;
 }
 
@@ -174,123 +189,6 @@ html, button {
 
 .login-button--grid-end {
   align-self: end;
-}
-
-.signup-link {
-  display: inline-block;
-  color: white;
-  border: 0;
-  border-radius: 2px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  white-space: nowrap;
-  background: #42b72a;
-  text-decoration: none;
-  text-align: center;
-  vertical-align: middle;
-  padding: 0 8px;
-  outline: 0;
-  margin: 12px;
-  width: 192px;
-  height: 45px;
-  line-height: 45px;
-  font-size: .875rem;
-}
-
-.signup-link:hover {
-  background-color: #36a420;
-}
-
-.signup-link:active {
-  background-color: #2b9217;
-}
-
-.signup-link:focus {
-  box-shadow: 0 0 1px 2px #85aeff;
-}
-
-.signup-link--small {
-  width: auto;
-  height: 28px;
-  line-height: 28px;
-  font-size: .75rem;
-}
-
-.signup-link--relative {
-  position: relative;
-  top: 24px;
-  left: -1px;
-}
-
-.main--failed {
-  padding: 82px 0;
-}
-
-.login-menu {
-  background: white;
-  width: 612px;
-  margin: 0 auto;
-  border: 1px solid #dddfe2;
-  text-align: center;
-}
-
-.login-menu__heading {
-  font-size: 18px;
-  height: 85px;
-  text-align: center;
-  line-height: 99px;
-}
-
-.login-large__input {
-  display: block;
-  margin: 0 auto;
-  width: 302px;
-  height: 34px;
-  padding: 5px 8px;
-  border: 1px solid #dddfe2;
-  margin-bottom: 12px;
-}
-
-.login-menu__or {
-  text-align: center;
-  position: relative;
-  font-size: 13px;
-  margin: 17px 0 6px 0;
-}
-
-.login-menu__or::before, .login-menu__or::after {
-  content: "";
-  height: 1px;
-  width: 132px;
-  background: #ccd0d5;
-  position: absolute;
-  top: 50%;
-}
-
-.login-menu__or::before {
-  right: 53%;
-}
-
-.login-menu__or::after {
-  left: 53%;
-}
-
-.login-menu__forgot {
-  display: block;
-  width: 105px;
-  margin: 0 auto 31px auto;
-  text-decoration: none;
-  font-size: 0.75em;
-  color: #365899;
-}
-
-.login-forgot:hover {
-  text-decoration: underline;
-}
-
-.hidden {
-  display: none;
 }
 
 .main {
@@ -474,10 +372,6 @@ html, button {
   background: linear-gradient(#79bb63, #578843);
 }
 
-.main-inner--signup {
-  padding: 0 290px;
-}
-
 .footer {
   width: 980px;
   margin: 0 auto;
@@ -486,3 +380,128 @@ html, button {
 .footer-info {
   margin: 20px 10px;
 }
+
+/* signup.html */
+
+.hidden {
+  display: none;
+}
+
+.main-inner--signup {
+  padding: 0 290px;
+}
+
+/* failedlogin.html */
+
+.main--failed {
+  padding: 82px 0;
+}
+
+.signup-link {
+  display: inline-block;
+  color: white;
+  border: 0;
+  border-radius: 2px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+  background: #42b72a;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 8px;
+  outline: 0;
+  margin: 12px;
+  width: 192px;
+  height: 45px;
+  line-height: 45px;
+  font-size: .875rem;
+}
+
+.signup-link:hover {
+  background-color: #36a420;
+}
+
+.signup-link:active {
+  background-color: #2b9217;
+}
+
+.signup-link:focus {
+  box-shadow: 0 0 1px 2px #85aeff;
+}
+
+.signup-link--small {
+  width: auto;
+  height: 28px;
+  line-height: 28px;
+  font-size: .75rem;
+}
+
+.signup-link--relative {
+  position: relative;
+  top: 24px;
+  left: -1px;
+}
+
+.login-menu {
+  background: white;
+  width: 612px;
+  margin: 0 auto;
+  border: 1px solid #dddfe2;
+  text-align: center;
+}
+
+.login-menu__heading {
+  font-size: 18px;
+  height: 85px;
+  line-height: 99px;
+}
+
+.login-large__input {
+  display: block;
+  margin: 0 auto;
+  width: 302px;
+  height: 34px;
+  padding: 5px 8px;
+  border: 1px solid #dddfe2;
+  margin-bottom: 12px;
+}
+
+.login-menu__or {
+  text-align: center;
+  position: relative;
+  font-size: 13px;
+  margin: 17px 0 6px 0;
+}
+
+.login-menu__or::before, .login-menu__or::after {
+  content: "";
+  height: 1px;
+  width: 132px;
+  background: #ccd0d5;
+  position: absolute;
+  top: 50%;
+}
+
+.login-menu__or::before {
+  right: 53%;
+}
+
+.login-menu__or::after {
+  left: 53%;
+}
+
+.login-menu__forgot {
+  display: block;
+  width: 105px;
+  margin: 0 auto 31px auto;
+  text-decoration: none;
+  font-size: 0.75em;
+  color: #365899;
+}
+
+.login-forgot:hover {
+  text-decoration: underline;
+}
+
