@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  {% if title %}
-  <title>{{ title }}</title>
-  {% else %}
-  <title>Welcome to Microblog!</title>
-  {% endif %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
-</head>
+{% block header %}
+<a href="{{ url_for('signup') }}" class="signup-link signup-link--small signup-link--relative">Sign Up</a>
+{% endblock header %}
 
-<header class="header">
-  <div class="header__inner">
-    <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">Alienbook</a></h1>
-    <a href="{{ url_for('signup') }}" class="signup-link signup-link--small signup-link--relative">Sign Up</a>
-  </div>
-</header>
+{% block content %}
 <main class="main main--failed">
   <div class="login-menu">
     <h2 class="login-menu__heading">Log in to Facebook</h2>
@@ -35,3 +20,4 @@
       <a class="login-menu__forgot" href="#">Forgotten account?</a>
     </div>
 </main>
+{% endblock content %}

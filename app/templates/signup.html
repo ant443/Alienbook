@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block header %}
+<button class="login-button login-button--small login-button--float" id="display-login" type="button">Log In
+  to Existing
+  Account</button>
+{{ macros.signin('hidden') }}
+{% endblock header %}
 
 {% block content %}
 <main class="main">

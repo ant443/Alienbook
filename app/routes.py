@@ -3,25 +3,17 @@ from app import app
 from datetime import datetime
 
 
-def valid_user(username, userpass):
-    user = {"username": "Miguel"}
-    users = {"Miguel": "guess"}
-    return username in user and users.get("Miguel", "none") == userpass
-
-
 @app.route("/", methods=["POST", "GET"])
 @app.route("/index", methods=["POST", "GET"])
 def index():
     user = {"username": "Miguel"}
     title = "Alienbook - log in or sign up"
     year = year = datetime.now().year
-    # error = None
     if request.method == "POST":
         if request.form["email"] == "admin" and request.form["password"] == "secret":
             print("here")
             flash("login successful, welcome user")
             return redirect(url_for("index"))
-            # (note: fb has completely different page when logged in, but still shows www.facebook.com in the address bar)
         else:
             return redirect(url_for("failedlogin"))
 

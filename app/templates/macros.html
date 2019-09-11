@@ -1,0 +1,14 @@
+{% macro signin(optional_class) %}
+<form class="signin {{ optional_class }}" action="{{ url_for('index') }}" method="post" novalidate>
+  <div>
+    <label class="signin__label" for="email">Email or Phone</label>
+    <input class="signin__input" id="email" type="email" name="email">
+  </div>
+  <div>
+    <label class="signin__label" for="password">Password</label>
+    <input class="signin__input" id="password" type="password" name="password">
+  </div>
+  <button class="login-button login-button--small login-button--grid-end">Log In</button>
+  <a class="signin__link" href="#">Forgotten account?</a>
+</form>
+{% endmacro %}

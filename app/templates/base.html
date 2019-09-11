@@ -21,32 +21,15 @@
   <header class="header">
     <div class="header__inner">
       <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">Alienbook</a></h1>
-      {# {% block header_content %}{% endblock %}#}
-      {% if hidden_menu %}
-      <button class="login-button login-button--small login-button--float" id="display-login" type="button">Log In
-        to Existing
-        Account</button>
-      {% endif %}
-      <form class="signin {{'hidden' if hidden_menu}}" action="{{ url_for('index') }}" method="post" novalidate>
-        <div>
-          <label class="signin__label" for="email">Email or Phone</label>
-          <input class="signin__input" id="email" type="email" name="email">
-        </div>
-        <div>
-          <label class="signin__label" for="password">Password</label>
-          <input class="signin__input" id="password" type="password" name="password">
-        </div>
-        <button class="login-button login-button--small login-button--grid-end">Log In</button>
-        <a class="signin__link" href="#">Forgotten account?</a>
-      </form>
+      {% block header %}{% endblock header %}
     </div>
   </header>
-  {% block content %}{% endblock %}
-</body>
-{# comment test #}
 
-<footer class="footer">
-  <p class="footer-info">A facebook clone by ant443</p>
-</footer>
+  {% block content %}{% endblock content %}
+
+  <footer class="footer">
+    <p class="footer-info">A facebook clone by ant443</p>
+  </footer>
+</body>
 
 </html>
