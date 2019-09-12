@@ -1,6 +1,7 @@
 from flask import render_template, request, flash, redirect, url_for
 from app import app
 from datetime import datetime
+from app.forms import LoginForm
 
 
 @app.route("/", methods=["POST", "GET"])
@@ -9,16 +10,21 @@ def index():
     user = {"username": "Miguel"}
     title = "Alienbook - log in or sign up"
     year = year = datetime.now().year
+    form = LoginForm()
     if request.method == "POST":
-        if request.form["email"] == "admin" and request.form["password"] == "secret":
-            print("here")
-            flash("login successful, welcome user")
+        # if request.form["email"] == "admin" and request.form["password"] == "secret":
+        if form.validate_on_submit():
+            # flash("login successful, welcome user")
+            flash(
+                f"Login requested for user {form.email.data},"
+                # f"remember_me={form.remember_me.data}"
+            )
             return redirect(url_for("index"))
         else:
             return redirect(url_for("failedlogin"))
 
     return render_template(
-        "index.html", title=title, user=user, year=year, particlejs=True
+        "index.html", title=title, user=user, year=year, particlejs=True, form=form
     )
 
 
@@ -34,7 +40,10 @@ def signup():
 
 @app.route("/failedlogin", methods=["POST", "GET"])
 def failedlogin():
-    return render_template("failed_login.html", title="Log in to Alienbook | Alienbook")
+    form = LoginForm()
+    return render_template(
+        "failed_login.html", title="Log in to Alienbook | Alienbook", form=form
+    )
 
 
 # decorators can be used to register the function that follows them as a callback for a certain event. When a web browser requests either of these two URLs "/" or "index", index will be called and it's return value will be passed back to the browser as a response.
