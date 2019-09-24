@@ -1,10 +1,11 @@
 /* /////////////////////////// */
 /* Table of contents */
-/* 8: Generic styles */
-/* 72: Logged out styles */
-/* index.html */
-/* signup.html */
-/* failedlogin.html */
+/* 11: Generic styles */
+/* 75: Logged out styles */
+/* 77: index.html */
+/* 385: signup.html */
+/* 395: failedlogin.html */
+/* 509: validation */
 /* /////////////////////////// */
 
 /* Generic styles */
@@ -458,7 +459,7 @@ html, button {
   line-height: 99px;
 }
 
-.login-large__input {
+.login-menu__input {
   display: block;
   margin: 0 auto;
   width: 302px;
@@ -505,3 +506,72 @@ html, button {
   text-decoration: underline;
 }
 
+/* validation */
+
+.login-menu__input-wrapper {
+  position: relative;
+}
+
+/* Input warning message */
+.login-menu__input:focus ~ .login-menu__msg-toggle {
+  display: block;
+}
+
+.login-menu__input:valid ~ .login-menu__msg-toggle {
+  display: none;
+}
+
+.login-menu__msg {
+  display: none;
+  position: absolute;
+  width: max-content;
+  left: 475px;
+  top: 0px;
+  border-radius: 3px;
+  box-shadow: 1px 3px 5px rgba(87, 87, 87, .5);
+  background-color: #963836;
+  color: white;
+  padding: 8px;
+}
+
+.login-menu__msg:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 6px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 13px solid #963836;
+  border-bottom: 10px solid transparent;
+}
+
+/* Input exclamation marks */
+.login-menu__input:valid ~ .exclamation,
+.login-menu__input:focus ~ .exclamation {
+  display: none;
+}
+
+.exclamation {
+  background-image: url("img/my_warning.png");
+  height: 23px;
+  width: 24px;
+  pointer-events: none;
+}
+
+.exclamation__login-menu {
+  position: absolute;
+  top: 5px;
+  right: 160px;
+}
+
+.login-menu__input--border:invalid {
+  border: 1px solid #963836;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.login-menu__input--border:focus {
+  border: 1px solid #dddfe2;
+  border-radius: 0;
+}

@@ -1,7 +1,26 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 {% import "macros.html" as macros %}
 
-{% block flash %}
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+{% endblock head %}
+
+{% block header %}
+{{ macros.signin("", form) }}
+{% endblock header %}
+
+{% block content %}
+
+{# (temporary)Display message on login #}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class=flashes>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
 
 <main class="main">
   <div class="main-inner main-inner--index">
@@ -14,7 +33,7 @@
   </div>
 </main>
 
-{% endblock flash %}
+{% endblock content %}
 
 <!-- extends statement links this template to base template, so jinja2 knows to embed it inside base when rendering. -->
 <!-- block - both templates have block statements named content, telling jinja2 how to combine the templates. -->

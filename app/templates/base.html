@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
   {% if title %}
   <title>{{ title }}</title>
   {% else %}
@@ -12,15 +13,13 @@
   {% endif %}
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <script src="{{ url_for('static', filename='script.js') }}" defer></script>
-  {% if particlejs %}
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  {% endif %}
+  {% block head %}{% endblock head %}
 </head>
 
 <body>
   <header class="header">
     <div class="header__inner">
-      <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">Alienbook</a></h1>
+      <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">alienbook</a></h1>
       {% block header %}{% endblock header %}
     </div>
   </header>

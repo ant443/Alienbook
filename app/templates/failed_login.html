@@ -8,11 +8,19 @@
 <main class="main main--failed">
   <div class="login-menu">
     <h2 class="login-menu__heading">Log in to Facebook</h2>
-    <form action="{{ url_for('index') }}" method="post" novalidate>
-      <input class="login-large__input" type="email" placeholder="Email address or phone number"
-        aria-label="Email address or phone number" name="email">
-      <input class="login-large__input" type="password" placeholder="Password" aria-label="password" name="password">
-      <button class="login-button">Log In</button>
+    <form action="{{ url_for('index') }}" method="post" id="login-form">
+      {{ form.hidden_tag() }}
+      <div class="login-menu__input-wrapper">
+        {{ form.email(size=32, class_="login-menu__input", type="email", placeholder="Email address", autofocus="", **{"aria-label": "Email address"}) }}
+        <i class="exclamation__login-menu"></i>
+        <p class="login-menu__msg login-menu__msg-toggle">Please enter valid email</p>
+      </div>
+      <div class="login-menu__input-wrapper">
+        {{ form.password(size=32, class_="login-menu__input", placeholder="Password", **{"aria-label": "password"}) }}
+        <i class="exclamation__login-menu"></i>
+        <p class="login-menu__msg">Please enter valid password</p>
+      </div>
+      {{ form.submit(class_="login-button")}}
     </form>
     <div class="login-menu__or">or</div>
     <div>

@@ -9,7 +9,7 @@ from app.forms import LoginForm
 def index():
     user = {"username": "Miguel"}
     title = "Alienbook - log in or sign up"
-    year = year = datetime.now().year
+    year = datetime.now().year
     form = LoginForm()
     if request.method == "POST":
         # if request.form["email"] == "admin" and request.form["password"] == "secret":
@@ -23,18 +23,19 @@ def index():
         else:
             return redirect(url_for("failedlogin"))
 
-    return render_template(
-        "index.html", title=title, user=user, year=year, particlejs=True, form=form
-    )
+    return render_template("index.html", title=title, user=user, year=year, form=form)
 
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    form = LoginForm()
+    title = "Sign up for Alienbook | Alienbook"
     return render_template(
         "signup.html",
-        title="Sign up for Alienbook | Alienbook",
+        title=title,
         hidden_menu=True,
         year=datetime.now().year,
+        form=form,
     )
 
 
