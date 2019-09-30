@@ -565,6 +565,7 @@ html, button {
   right: 160px;
 }
 
+/* input border */
 .login-menu__input--border:invalid {
   border: 1px solid #963836;
   border-radius: 2px;

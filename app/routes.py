@@ -11,22 +11,17 @@ def index():
     title = "Alienbook - log in or sign up"
     year = datetime.now().year
     form = LoginForm()
+    print("test", flush=True)
     if request.method == "POST":
-        # if request.form["email"] == "admin" and request.form["password"] == "secret":
         if form.validate_on_submit():
-            # flash("login successful, welcome user")
-            flash(
-                f"Login requested for user {form.email.data},"
-                # f"remember_me={form.remember_me.data}"
-            )
+            flash(f"Login requested for user {form.email.data}")
             return redirect(url_for("index"))
         else:
-            return redirect(url_for("failedlogin"))
-
+            return redirect(url_for("failed_login"))
     return render_template("index.html", title=title, user=user, year=year, form=form)
 
 
-@app.route("/signup", methods=["GET", "POST"])
+@app.route("/signup", methods=["POST", "GET"])
 def signup():
     form = LoginForm()
     title = "Sign up for Alienbook | Alienbook"
@@ -39,9 +34,17 @@ def signup():
     )
 
 
-@app.route("/failedlogin", methods=["POST", "GET"])
-def failedlogin():
+@app.route("/failed_login", methods=["POST", "GET"])
+def failed_login():
     form = LoginForm()
+    if request.method == "POST":
+        if form.validate_on_submit():
+            flash(f"Login requested for user {form.email.data}")
+            return redirect(url_for("index"))
+        else:
+            return render_template(
+                "failed_login.html", title="Log in to Alienbook | Alienbook", form=form
+            )
     return render_template(
         "failed_login.html", title="Log in to Alienbook | Alienbook", form=form
     )

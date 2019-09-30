@@ -29,7 +29,10 @@
     return;
   }
 
-  function showRequiredIcon(e) {
+  function addCustomAlerts(e) {
+    if (e.target.id === "submit") {
+      return
+    }
     const input = e.target;
     const icon = input.nextElementSibling;
     const msg = icon.nextElementSibling;
@@ -38,12 +41,13 @@
     input.classList.add("login-menu__input--border");
   }
 
-  function preventHTML5Bubble(e) {
-    e.preventDefault();
-  }
+  // function preventHTML5Bubble(e) {
+  //   addCustomAlerts(e);
+  //   e.preventDefault();
+  // }
 
-  formEl.addEventListener("focusout", showRequiredIcon);
-  formEl.addEventListener("invalid", preventHTML5Bubble, true);
+  formEl.addEventListener("focusout", addCustomAlerts);
+  // formEl.addEventListener("invalid", preventHTML5Bubble, true);
 
 })();
 
