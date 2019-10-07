@@ -14,17 +14,17 @@
         {{ form.email(size=32, class_="login-menu__input", type="email", placeholder="Email address", autofocus="", **{"aria-label": "Email address"}) }}
         <i class="exclamation__login-menu"></i>
         <p class="login-menu__msg login-menu__msg-toggle">Please enter valid email</p>
-        {% for error in form.password.errors %}
+        <!-- {% for error in form.password.errors %}
         <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
+        {% endfor %} -->
       </div>
       <div class="login-menu__input-wrapper">
         {{ form.password(size=32, class_="login-menu__input", placeholder="Password", **{"aria-label": "password"}) }}
         <i class="exclamation__login-menu"></i>
         <p class="login-menu__msg">Please enter valid password</p>
-        {% for error in form.password.errors %}
+        <!-- {% for error in form.password.errors %}
         <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
+        {% endfor %} -->
       </div>
       {{ form.submit(class_="login-button")}}
     </form>

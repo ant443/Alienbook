@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% if current_user.is_anonymous %}
 {% import "macros.html" as macros %}
 
 {% block head %}
@@ -10,17 +11,6 @@
 {% endblock header %}
 
 {% block content %}
-
-{# (temporary)Display message on login #}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul class=flashes>
-  {% for message in messages %}
-  <li>{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
 
 <main class="main">
   <div class="main-inner main-inner--index">
@@ -34,6 +24,7 @@
 </main>
 
 {% endblock content %}
-
-<!-- extends statement links this template to base template, so jinja2 knows to embed it inside base when rendering. -->
-<!-- block - both templates have block statements named content, telling jinja2 how to combine the templates. -->
+{% else %}
+<p>Welcome user..</p>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endif %}
