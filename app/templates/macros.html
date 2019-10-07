@@ -1,5 +1,5 @@
 {% macro signin(optional_class, form) %}
-<form class="signin {{ optional_class }}" action="{{ url_for('index') }}" method="post" novalidate>
+<form class="signin {{ optional_class }}" action="{{ url_for('login') }}" method="post" novalidate>
   {{ form.hidden_tag() }}
   <div>
     {{ form.email.label(class_="signin__label optional_class") }}
