@@ -2,7 +2,7 @@ from flask import render_template, request, flash, redirect, url_for
 from app import app
 from datetime import datetime
 from app.forms import LoginForm
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 
 
@@ -20,7 +20,10 @@ def index():
     #         return redirect(url_for("index"))
     #     else:
     #         return redirect(url_for("login"))
-    return render_template("index.html", title=title, year=year, form=form)
+    if current_user.is_anonymous:
+        return render_template("index.html", title=title, year=year, form=form)
+    else:
+        return redirect(url_for("profile"))
 
 
 @app.route("/signup", methods=["POST", "GET"])
@@ -51,8 +54,11 @@ def login():
                 "login.html", title="Log in to Alienbook | Alienbook", form=form
             )
         login_user(user)
-        flash(f"Login successful for user {form.email.data}")
-        return redirect(url_for("index"))
+        next_page = request.args.get("next")
+        if not next_page or url_parse(next_page).netloc != "":
+            flash(f"Login successful for user {form.email.data}")
+            next_page = url_for("index")
+        return redirect(next_page)
     return render_template(
         "login.html", title="Log in to Alienbook | Alienbook", form=form
     )
@@ -62,3 +68,14 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for("index"))
+
+
+@app.route("/profile")
+@login_required
+def profile():
+    return render_template("profile.html")
+
+
+@app.route("/confirm_email")
+def confirm_email():
+    return render_template("confirm_email.html")

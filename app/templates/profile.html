@@ -5,16 +5,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ username }}</title>
+  <title>{{ current_user.username }}</title>
 </head>
 
 <body>
 
   <header>
     <nav>
-      <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='fc.img' alt='') }}""></a>
+      <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='fc.img', alt='') }}"></a>
+      <a href=" {{ url_for('logout') }}">Logout</a>
     </nav>
   </header>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+
+  <h1>Hi, {{ current_user.username }}!</h1>
+  {% for post in posts %}
+  <div>
+    <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
+  </div>
+  {% endfor %}
 
 </body>
 

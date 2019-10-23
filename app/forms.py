@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Email, ValidationError
+from app.models import User
 
 
 class LoginForm(FlaskForm):
@@ -9,3 +10,15 @@ class LoginForm(FlaskForm):
     # remember_me = BooleanField("Remember Me")
     submit = SubmitField("Log In")
 
+
+class RegistrationForm(FlaskForm):
+    firstname = StringField("First name", validators=[DataRequired()])
+    surname = StringField("Surname", validators=[DataRequired()])
+    email = StringField("Email Address", validators=[DataRequired(), Email()])
+    password = PasswordField("New password", validators=[DataRequired()])
+    # birthdate = day month and year... how do I group data together?
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is not None:
+            raise ValidationError("Email address already in use.")

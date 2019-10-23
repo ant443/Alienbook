@@ -378,7 +378,7 @@ html, button {
   margin: 0 auto;
 }
 
-.footer-info {
+.footer__info {
   margin: 20px 10px;
 }
 
@@ -576,3 +576,228 @@ html, button {
   border: 1px solid #dddfe2;
   border-radius: 0;
 }
+
+/* logged in styles */
+
+/* temp styles */
+
+body {
+  overflow: scroll;
+}
+
+/* Unmerged styles */
+
+strong {
+  font-weight: bold;
+}
+
+.user-body {
+  background-color: #e9ebee;
+}
+
+/* confirm_email.html */
+
+.header-user {
+  background-color: #4267b2;
+  height: 43px;
+  display: flex;
+  border-bottom: 1px solid #354a78;
+}
+
+.header-use__inner{
+  width: 1012px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: darkgreen; */
+}
+
+.logo-link {
+}
+
+.logo {
+  margin: 0 5px;
+}
+
+.main-nav {
+}
+
+.main-nav__list {
+  display: flex;
+  margin: 0 5px;
+  align-items: center;
+}
+
+.main-nav__item {
+  /* margin: 0 8px; */
+  margin-left: 20px;
+}
+
+.main-nav__profile {
+  display: flex;
+  text-decoration: none;
+  color: white;
+  align-items: center;
+  padding: 2px 17px 2px 2px;
+  border-radius: 2px;
+}
+
+.main-nav__profile:hover {
+  background-color: #3b5da0;
+}
+
+.main-nav__profile-icon {
+  background-image: url("img/user.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 24px;
+  width: 24px;
+  display: block;
+}
+
+.main-nav__profile-name {
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.main-nav__separator {
+  width: 1px;
+  height: 18px;
+  background-color: #354a78;
+}
+
+.main-nav__notifications-link {
+}
+
+.main-nav__notifications-icon {
+  background-image: url("img/notifications.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.main-nav__settings-link {
+}
+
+.main-nav__settings-icon {
+  display: block;
+  border-top: 6px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+/* confirm_email.html */
+
+.main-user {
+  max-width: 1012px;
+  margin: 0 auto;
+}
+
+.email-code {
+  margin: 50px auto 500px auto;
+  background-color: white;
+  border: 1px solid lightgrey;
+  padding: 0 20px;
+  /* margin: 0 auto; */
+  max-width: 550px;
+  font-size: 12px;
+}
+
+.email-code__h1 {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+.email-code__seperator {
+  background-color: lightgrey;
+  height: 1px;
+  margin: 15px 0;
+}
+
+.email-code__info {
+  margin: 20px 0;
+}
+
+.email-code__initials {
+  margin-right: 3px;
+}
+
+.email-code__code {
+  width: 60px;
+}
+
+.email-code__lower {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.email-code__link {
+  text-decoration: none;
+  color: #365899;
+}
+
+.email-code__link:hover {
+  text-decoration: underline;
+}
+
+.link-btn--grey {
+  background-color: #f5f6f7;
+  color: #56566b;
+  box-shadow: 0 0 1px 1px lightgrey;
+  margin: 0;
+}
+
+.link-btn--grey:hover {
+  background-color: #e1e2e3;
+}
+
+.link-btn--grey:active {
+  background-color: #D0D1D2;
+}
+
+.btn--disabled {
+  width: auto;
+  height: 30px;
+  font-size: .75rem;
+  background-color: #9cb4d8;
+  margin-left: 5px;
+  padding: 0 10px;
+}
+
+.btn--disabled:hover {
+  background-color: #9cb4d8;
+}
+
+.btn--disabled:active {
+  background-color: #9cb4d8;
+}
+
+.email-code__btn-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.horizontal-separator {
+  background-color: lightgrey;
+  /* width: 850px; */
+  height: 1px;
+  margin: 0 auto;
+}
+
+.footer-user {
+  width: 1012px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+.footer-user__info {
+}
+

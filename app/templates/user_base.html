@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>facebook clone</title>
+  {% endif %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="user-body">
+  <header class="header-user">
+    <div class="header-use__inner">
+      <a class="logo-link" href="#">
+        <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+      </a>
+      {# if not confirm_email.html: search bar #}
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li>
+            <a class="main-nav__profile" href="#" aria-label="profile Yousef">
+              <i class="main-nav__profile-icon"></i>
+              <span class="main-nav__profile-name">Yousef</span>
+            </a>
+          </li>
+          <li class="main-nav__separator"></li>
+          {# if not confirm_email.html: other items #}
+          <li class="main-nav__item">
+            <a href="#" class="main-nav__notifications-link">
+              <i class="main-nav__notifications-icon" aria-label="notifications"></i>
+            </a>
+          </li>
+          <li class="main-nav__item">
+            <a href="#" class="main-nav__settings-link">
+              <i class="main-nav__settings-icon" aria-label="account settings"></i>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  {% block content %}{% endblock content %}
+
+</body>
+
+</html>

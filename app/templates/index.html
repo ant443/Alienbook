@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% if current_user.is_anonymous %}
 {% import "macros.html" as macros %}
 
 {% block head %}
@@ -24,6 +23,3 @@
 </main>
 
 {% endblock content %}
-{% else %}
-<a href="{{ url_for('logout') }}">Logout</a>
-{% endif %}
