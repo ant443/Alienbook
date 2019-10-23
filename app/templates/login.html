@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}
-<a href="{{ url_for('signup') }}" class="signup-link signup-link--small signup-link--relative">Sign Up</a>
+<a href="{{ url_for('signup') }}" class="btn-link btn-link--small btn-link--relative">Sign Up</a>
 {% endblock header %}
 
 {% block content %}
@@ -30,7 +30,7 @@
     </form>
     <div class="login-menu__or">or</div>
     <div>
-      <a class="signup-link" href="{{ url_for('signup') }}">Create New Account</a>
+      <a class="btn-link" href="{{ url_for('signup') }}">Create New Account</a>
       <a class="login-menu__forgot" href="#">Forgotten account?</a>
     </div>
 </main>

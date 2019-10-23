@@ -398,7 +398,7 @@ html, button {
   padding: 82px 0;
 }
 
-.signup-link {
+.btn-link {
   display: inline-block;
   color: white;
   border: 0;
@@ -420,26 +420,26 @@ html, button {
   font-size: .875rem;
 }
 
-.signup-link:hover {
+.btn-link:hover {
   background-color: #36a420;
 }
 
-.signup-link:active {
+.btn-link:active {
   background-color: #2b9217;
 }
 
-.signup-link:focus {
+.btn-link:focus {
   box-shadow: 0 0 1px 2px #85aeff;
 }
 
-.signup-link--small {
+.btn-link--small {
   width: auto;
   height: 28px;
   line-height: 28px;
   font-size: .75rem;
 }
 
-.signup-link--relative {
+.btn-link--relative {
   position: relative;
   top: 24px;
   left: -1px;
@@ -748,18 +748,18 @@ strong {
   text-decoration: underline;
 }
 
-.link-btn--grey {
+.btn-link--grey {
   background-color: #f5f6f7;
   color: #56566b;
   box-shadow: 0 0 1px 1px lightgrey;
   margin: 0;
 }
 
-.link-btn--grey:hover {
+.btn-link--grey:hover {
   background-color: #e1e2e3;
 }
 
-.link-btn--grey:active {
+.btn-link--grey:active {
   background-color: #D0D1D2;
 }
 
