@@ -19,7 +19,11 @@
 <body>
   <header class="header">
     <div class="header__inner">
+      {% if logo_heading %}
       <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">alienbook</a></h1>
+      {% else %}
+      <div class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">alienbook</a></div>
+      {% endif %}
       {% block header %}{% endblock header %}
     </div>
   </header>

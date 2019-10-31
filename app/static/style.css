@@ -72,6 +72,10 @@ html, button {
   box-sizing: border-box;
 }
 
+strong {
+  font-weight: bold;
+}
+
 /* Logged out styles */
 
 /* index.html */
@@ -579,39 +583,24 @@ html, button {
 
 /* logged in styles */
 
-/* temp styles */
-
-body {
-  overflow: scroll;
-}
-
-/* Unmerged styles */
-
-strong {
-  font-weight: bold;
-}
-
 .user-body {
   background-color: #e9ebee;
 }
 
-/* confirm_email.html */
-
-.header-user {
+.user-header {
   background-color: #4267b2;
   height: 43px;
   display: flex;
   border-bottom: 1px solid #354a78;
 }
 
-.header-use__inner{
+.user-header__inner {
   width: 1012px;
   margin: 0 auto;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: darkgreen; */
 }
 
 .logo-link {
@@ -631,8 +620,11 @@ strong {
 }
 
 .main-nav__item {
-  /* margin: 0 8px; */
-  margin-left: 20px;
+  margin-left: 15px;
+  position: relative;
+}
+
+.has-submenu {
 }
 
 .main-nav__profile {
@@ -669,11 +661,11 @@ strong {
   background-color: #354a78;
 }
 
-.main-nav__notifications-link {
+.main-nav__quick-help-link {
 }
 
-.main-nav__notifications-icon {
-  background-image: url("img/notifications.png");
+.main-nav__quick-help-icon {
+  background-image: url("img/quick-help.png");
   background-repeat: no-repeat;
   background-position: center;
   width: 20px;
@@ -682,18 +674,63 @@ strong {
 }
 
 .main-nav__settings-link {
+  width: 20px;
+  height: 20px;
+  color: grey;
+  display: flex;
 }
 
 .main-nav__settings-icon {
-  display: block;
+  width: 6px;
+  height: 5px;
   border-top: 6px solid black;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
+  margin: 0 auto;
+  align-self: center;
 }
+
+[data-tooltip="1"] .main-nav__tooltip {
+  left: 25px;
+  top: 35px;
+}
+
+[data-tooltip="1"] .main-nav__tooltip--black {
+  left: -10px;
+  top: 31px;
+}
+
+.main-nav__tooltip {
+  position: absolute;
+  left: -9999px;
+  padding: 7px;
+  border-radius: 2px;
+  font-size: 12px;
+  width: max-content;
+  background-color: white;
+  border: 1px solid #1e1e1e;
+}
+
+.main-nav__tooltip--black {
+  color: white;
+  background-color: #1e1e1e;
+}
+
+.main-nav__tooltip--black::before {
+  content: "";
+  border-bottom: 4px solid #1e1e1e;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  position: absolute;
+  bottom: 26px;
+  left: 16px;
+}
+
 
 /* confirm_email.html */
 
-.main-user {
+
+.user-main {
   max-width: 1012px;
   margin: 0 auto;
 }
@@ -703,7 +740,6 @@ strong {
   background-color: white;
   border: 1px solid lightgrey;
   padding: 0 20px;
-  /* margin: 0 auto; */
   max-width: 550px;
   font-size: 12px;
 }
@@ -774,6 +810,7 @@ strong {
 
 .btn--disabled:hover {
   background-color: #9cb4d8;
+  cursor: default;
 }
 
 .btn--disabled:active {
@@ -787,7 +824,6 @@ strong {
 
 .horizontal-separator {
   background-color: lightgrey;
-  /* width: 850px; */
   height: 1px;
   margin: 0 auto;
 }
@@ -801,3 +837,9 @@ strong {
 .footer-user__info {
 }
 
+
+/* temp styles */
+
+body {
+  overflow: scroll;
+}

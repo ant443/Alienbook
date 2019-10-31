@@ -7,7 +7,7 @@
 {% block content %}
 <main class="main main--failed">
   <div class="login-menu">
-    <h2 class="login-menu__heading">Log in to Facebook</h2>
+    <h1 class="login-menu__heading">Log in to Facebook</h1>
     <form action="{{ url_for('login') }}" method="post" id="login-form" novalidate>
       {{ form.hidden_tag() }}
       <div class="login-menu__input-wrapper">

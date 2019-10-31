@@ -11,7 +11,11 @@
 {% block content %}
 <main class="main">
   <div class="main-inner main-inner--signup">
-    {{ macros.signup("Create a new account", year) }}
+    <section class="signup">
+      <h1 class="signup__heading">Create a new account</h1>
+      <p class="signup__message">It's free and always will be.</p>
+      {{ macros.signup(year) }}
+    </section>
   </div>
 </main>
 

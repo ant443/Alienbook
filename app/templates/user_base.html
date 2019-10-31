@@ -12,40 +12,45 @@
   <title>facebook clone</title>
   {% endif %}
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script_user.js') }}" defer></script>
 </head>
 
 <body class="user-body">
-  <header class="header-user">
-    <div class="header-use__inner">
+  <header class="user-header">
+    <div class="user-header__inner">
       <a class="logo-link" href="#">
         <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
       </a>
       {# if not confirm_email.html: search bar #}
       <nav class="main-nav">
-        <ul class="main-nav__list">
-          <li>
-            <a class="main-nav__profile" href="#" aria-label="profile Yousef">
+        <ul class="main-nav__list" id="nav-list">
+          <li class="main-nav__item" data-tooltip="0">
+            <a class="main-nav__profile" href="#" aria-describedby="profile">
               <i class="main-nav__profile-icon"></i>
               <span class="main-nav__profile-name">Yousef</span>
             </a>
+            <span class="main-nav__tooltip" role="tooltip" id="profile">Profile</span>
           </li>
           <li class="main-nav__separator"></li>
           {# if not confirm_email.html: other items #}
-          <li class="main-nav__item">
-            <a href="#" class="main-nav__notifications-link">
-              <i class="main-nav__notifications-icon" aria-label="notifications"></i>
+          <li class="main-nav__item" data-tooltip="0">
+            <a href="#" class="main-nav__quick-help-link">
+              <i class="main-nav__quick-help-icon" aria-label="Quick help"></i>
             </a>
+            <span class="main-nav__tooltip main-nav__tooltip--black">Quick Help</span>
           </li>
-          <li class="main-nav__item">
+          <li class="main-nav__item" data-tooltip="0">
             <a href="#" class="main-nav__settings-link">
-              <i class="main-nav__settings-icon" aria-label="account settings"></i>
+              <i class="main-nav__settings-icon" aria-label="Account settings"></i>
             </a>
+            <span class="main-nav__tooltip main-nav__tooltip--black">Account Settings</span>
           </li>
 
         </ul>
       </nav>
     </div>
   </header>
+  <span aria-label="I'm a span!"></span>
 
   {% block content %}{% endblock content %}
 

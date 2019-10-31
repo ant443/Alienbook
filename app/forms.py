@@ -16,7 +16,9 @@ class RegistrationForm(FlaskForm):
     surname = StringField("Surname", validators=[DataRequired()])
     email = StringField("Email Address", validators=[DataRequired(), Email()])
     password = PasswordField("New password", validators=[DataRequired()])
-    # birthdate = day month and year... how do I group data together?
+    day = StringField("Day", validators=[DataRequired()])
+    month = StringField("Month", validators=[DataRequired()])
+    year = StringField("Year", validators=[DataRequired()])
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()

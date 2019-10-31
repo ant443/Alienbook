@@ -9,19 +9,13 @@ from app.models import User
 @app.route("/", methods=["POST", "GET"])
 @app.route("/index", methods=["POST", "GET"])
 def index():
-    # user = {"username": "Miguel"}
     title = "Alienbook - log in or sign up"
     year = datetime.now().year
     form = LoginForm()
-    # if request.method == "POST":
-    #     print(request, flush=True)
-    #     if form.validate_on_submit():
-    #         flash(f"Login requested for user {form.email.data}")
-    #         return redirect(url_for("index"))
-    #     else:
-    #         return redirect(url_for("login"))
     if current_user.is_anonymous:
-        return render_template("index.html", title=title, year=year, form=form)
+        return render_template(
+            "index.html", title=title, year=year, form=form, logo_heading=True
+        )
     else:
         return redirect(url_for("profile"))
 
@@ -44,8 +38,6 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for("index"))
     form = LoginForm()
-    # if request.method == "POST":
-    #     print(request, flush=True)
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user is None or not user.check_password(form.password.data):
@@ -78,4 +70,4 @@ def profile():
 
 @app.route("/confirm_email")
 def confirm_email():
-    return render_template("confirm_email.html")
+    return render_template("confirm_email.html", title="Alienbook")
