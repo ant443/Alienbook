@@ -10,8 +10,8 @@ class User(UserMixin, db.Model):
     surname = db.Column(db.String(64), index=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    # birthdate = db.Column(db.Date)
-    # gender = db.Column(db.String(8))
+    birthdate = db.Column(db.Date)
+    gender = db.Column(db.String(8))
     posts = db.relationship("Post", backref="author", lazy="dynamic")
 
     def set_password(self, password):
@@ -19,6 +19,10 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    def set_birthdate(self, day, month, year):
+        date_format = "%d, %b, %Y"
+        self.birthdate = datetime.strptime(f"{day}, {month}, {year}", date_format)
 
     def __repr__(self):
         return f"<User {self.username}>"
@@ -37,4 +41,3 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"<Post {self.body}>"
-

@@ -1,7 +1,8 @@
 from flask import render_template, request, flash, redirect, url_for
 from app import app
-from datetime import datetime
-from app.forms import LoginForm
+
+# from datetime import datetime
+from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 
@@ -10,11 +11,17 @@ from app.models import User
 @app.route("/index", methods=["POST", "GET"])
 def index():
     title = "Alienbook - log in or sign up"
-    year = datetime.now().year
+    # year = datetime.now().year
     form = LoginForm()
+    signupform = RegistrationForm()
     if current_user.is_anonymous:
         return render_template(
-            "index.html", title=title, year=year, form=form, logo_heading=True
+            "index.html",
+            title=title,
+            # year=year,
+            form=form,
+            signupform=signupform,
+            logo_heading=True,
         )
     else:
         return redirect(url_for("profile"))
@@ -23,13 +30,15 @@ def index():
 @app.route("/signup", methods=["POST", "GET"])
 def signup():
     form = LoginForm()
+    signupform = RegistrationForm()
     title = "Sign up for Alienbook | Alienbook"
     return render_template(
         "signup.html",
         title=title,
         hidden_menu=True,
-        year=datetime.now().year,
+        # year=datetime.now().year,
         form=form,
+        signupform=signupform,
     )
 
 

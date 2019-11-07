@@ -326,14 +326,10 @@ strong {
 
 .signup__gender-span {
   margin-left: 10px;
+  margin-right: 12px;
   font-weight: bold;
   font-size: 1.05em;
-  height: 30px;
   padding-top: 4px;
-}
-
-.signup__gender-span--margin {
-  margin-left: 22px;
 }
 
 .signup__gender-label {
