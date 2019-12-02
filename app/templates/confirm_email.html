@@ -7,7 +7,7 @@
     <h1 class="email-code__h1">Enter the code from your email</h1>
     <div class="email-code__seperator"></div>
     <p class="email-code__info">Let us know this email address belongs to you. Enter the code from the email sent to
-      <strong>{{ current_user.username }}</strong>.
+      <strong>{{ current_user.email }}</strong>.
     </p>
     <form action="">
       <span class="email-code__initials">AB-</span><input type="text" maxlength="5" class="email-code__code">
@@ -26,7 +26,6 @@
 
 <footer class="footer-user">
   <p class="footer-user__info">A facebook clone by ant443</p>
-  <a href="">temporary logout "button"</a>
 </footer>
 
 {% endblock content %}

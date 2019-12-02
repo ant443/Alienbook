@@ -15,23 +15,23 @@
 </form>
 {% endmacro %}
 
-{% macro signup(signupform) %}
-<form class="signup__form" action="" method="post">
-  {{ signupform.hidden_tag() }}
-  {{ signupform.firstname(class_="signup__input signup__input--float signup__input--narrow", placeholder="First name", required="true", **{"aria-label": "First name"})}}
-  {{ signupform.surname(class_="signup__input signup__input--narrow", placeholder="Surname", required="true", **{"aria-label": "Surname"})}}
-  {{ signupform.email(class_="signup__input", placeholder="Email address", required="true", **{"aria-label": "Email address"})}}
-  {{ signupform.password(class_="signup__input", placeholder="New password", required="true", **{"aria-label": "New password"})}}
+{% macro signup(form) %}
+<form class="signup__form" action="{{ url_for('signup') }}" method="post" novalidate>
+  {{ form.hidden_tag() }}
+  {{ form.firstname(class_="signup__input signup__input--float signup__input--narrow", placeholder="First name", required="true", **{"aria-label": "First name"})}}
+  {{ form.surname(class_="signup__input signup__input--narrow", placeholder="Surname", required="true", **{"aria-label": "Surname"})}}
+  {{ form.email(class_="signup__input", placeholder="Email address", required="true", **{"aria-label": "Email address"})}}
+  {{ form.password(class_="signup__input", placeholder="New password", required="true", **{"aria-label": "New password"})}}
   <fieldset class="birthdate">
     <legend class="birthdate__legend">Birthdate</legend>
-    {{ signupform.day(class_="birthdate__select birthdate__select--narrow", **{"aria-label": "day"})}}
-    {{ signupform.month(class_="birthdate__select", **{"aria-label": "month"})}}
-    {{ signupform.year(class_="birthdate__select", **{"aria-label": "year"})}}
+    {{ form.day(class_="birthdate__select birthdate__select--narrow", **{"aria-label": "day"})}}
+    {{ form.month(class_="birthdate__select", **{"aria-label": "month"})}}
+    {{ form.year(class_="birthdate__select", **{"aria-label": "year"})}}
     <a class="birthdate__link" href="#">Why do I need to provide my date of birth?</a>
   </fieldset>
   <fieldset class="signup__gender">
     <legend class="signup__gender-legend">Gender</legend>
-    {% for subfield in signupform.gender %}
+    {% for subfield in form.gender %}
     <span class="signup__gender-span">
       {{ subfield(class_="signup__gender-input") }}
       {{ subfield.label(class_="signup__gender-label") }}
@@ -48,5 +48,9 @@
     at
     any time.</p>
   <button class="signup__btn">Sign Up</button>
+  {% for item in form %}
+  <span style="color: red;">{{ item.errors }}</span>
+  <span style="color: green;">{{ item.data }}</span>
+  {% endfor %}
 </form>
 {% endmacro %}

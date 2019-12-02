@@ -18,16 +18,17 @@
 <body class="user-body">
   <header class="user-header">
     <div class="user-header__inner">
-      <a class="logo-link" href="#">
+      <a class="logo-link" href="{{ url_for('index') }}">
         <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
       </a>
       {# if not confirm_email.html: search bar #}
       <nav class="main-nav">
         <ul class="main-nav__list" id="nav-list">
           <li class="main-nav__item" data-tooltip="0">
-            <a class="main-nav__profile" href="#" aria-describedby="profile">
+            <a class="main-nav__profile" href="{{ url_for('profile', username=current_user.username) }}"
+              aria-describedby="profile">
               <i class="main-nav__profile-icon"></i>
-              <span class="main-nav__profile-name">Yousef</span>
+              <span class="main-nav__profile-name">{{ current_user.firstname }}</span>
             </a>
             <span class="main-nav__tooltip" role="tooltip" id="profile">Profile</span>
           </li>
@@ -50,8 +51,16 @@
       </nav>
     </div>
   </header>
-  <span aria-label="I'm a span!"></span>
 
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
   {% block content %}{% endblock content %}
 
 </body>

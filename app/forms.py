@@ -23,10 +23,10 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
     def day_choices():
         days = []
-        days.append((0, "Day"))
-        for i in range(1, 32):
-            # if i not 0 padded..
-            days.append((i, i))
+        days.append(("0", "Day"))
+        for day_num in range(1, 32):
+            day_num = str(day_num)
+            days.append((day_num, day_num))
         return days
 
     def month_choices():
@@ -42,11 +42,12 @@ class RegistrationForm(FlaskForm):
         max_years = 120
         years.append(("0", "Year"))
         for year in range(this_year, this_year - (max_years + 1), -1):
+            year = str(year)
             years.append((year, year))
         return years
 
     def validate_email(self, email):
-        user = User.query.filter_by(email=email.data).first()
+        user = User.query.filter_by(email=email.data.lower()).first()
         if user is not None:
             raise ValidationError("Email address already in use.")
 

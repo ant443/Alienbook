@@ -5,7 +5,7 @@
 <button class="login-button login-button--small login-button--float" id="display-login" type="button">Log In
   to Existing
   Account</button>
-{{ macros.signin("hidden", form) }}
+{{ macros.signin("hidden", login_form) }}
 {% endblock header %}
 
 {% block content %}
@@ -14,7 +14,7 @@
     <section class="signup">
       <h1 class="signup__heading">Create a new account</h1>
       <p class="signup__message">It's free and always will be.</p>
-      {{ macros.signup(signupform) }}
+      {{ macros.signup(signup_form) }}
     </section>
   </div>
 </main>

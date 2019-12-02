@@ -17,9 +17,7 @@
     return;
   }
   const particlesConfig = "../static/particles.json";
-  particlesJS.load("particles-js", particlesConfig, function () {
-    console.log("particles.json loaded");
-  });
+  particlesJS.load("particles-js", particlesConfig, function () { });
 })();
 
 
