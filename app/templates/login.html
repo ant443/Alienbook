@@ -5,26 +5,27 @@
 {% endblock header %}
 
 {% block content %}
-<main class="main main--failed">
+<main class="main main--login">
   <div class="login-menu">
     <h1 class="login-menu__heading">Log in to Facebook</h1>
-    <form action="{{ url_for('login') }}" method="post" id="login-form" novalidate>
+    <form action="{{ url_for('login') }}" method="post" id="main-login" novalidate>
       {{ login_form.hidden_tag() }}
-      <div class="login-menu__input-wrapper">
-        {{ login_form.email(class_="login-menu__input", type="email", placeholder="Email address", autofocus="", **{"aria-label": "Email address"}) }}
-        <i class="exclamation__login-menu"></i>
-        <p class="login-menu__msg login-menu__msg-toggle">Please enter valid email</p>
-        <!-- {% for error in login_form.email.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %} -->
+      <div class="validation__wrapper {{'validation__error' if login_form.email.errors }}">
+        {{ login_form.email(class_="login-menu__input validation__input", type="email", placeholder="Email address", autofocus="", **{"aria-label": "Email address"}) }}
+        {% if login_form.email.errors %}
+        <i class="validation__icon--login validation__icon--login-layout"></i>
+        <p class="validation__msg validation__msg--login-layout validation__msg--login">The email address that you've
+          entered doesn't match any account. <strong>Sign up for an account.</strong></p>
+        {% endif %}
       </div>
-      <div class="login-menu__input-wrapper">
-        {{ login_form.password(class_="login-menu__input", placeholder="Password", **{"aria-label": "password"}) }}
-        <i class="exclamation__login-menu"></i>
-        <p class="login-menu__msg">Please enter valid password</p>
-        <!-- {% for error in login_form.password.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %} -->
+      <div
+        class="validation__wrapper {{'validation__error' if not login_form.email.errors and login_form.password.errors }}">
+        {{ login_form.password(class_="login-menu__input validation__input", placeholder="Password", **{"aria-label": "password"}) }}
+        {% if not login_form.email.errors and login_form.password.errors %}
+        <i class="validation__icon--login validation__icon--login-layout"></i>
+        <p class="validation__msg validation__msg--login-layout validation__msg--login">The password that you've
+          entered is incorrect. <strong>Forgotten password?</strong></p>
+        {% endif %}
       </div>
       {{ login_form.submit(class_="login-button")}}
     </form>

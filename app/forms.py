@@ -16,14 +16,13 @@ from datetime import datetime
 class LoginForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
-    # remember_me = BooleanField("Remember Me")
     submit = SubmitField("Log In")
 
 
 class RegistrationForm(FlaskForm):
     def day_choices():
         days = []
-        days.append(("0", "Day"))
+        days.append(("", "Day"))
         for day_num in range(1, 32):
             day_num = str(day_num)
             days.append((day_num, day_num))
@@ -31,7 +30,7 @@ class RegistrationForm(FlaskForm):
 
     def month_choices():
         months = []
-        months.append(("0", "Month"))
+        months.append(("", "Month"))
         for month in month_abbr[1:]:
             months.append((month, month))
         return months
@@ -40,7 +39,7 @@ class RegistrationForm(FlaskForm):
         this_year = datetime.now().year
         years = []
         max_years = 120
-        years.append(("0", "Year"))
+        years.append(("", "Year"))
         for year in range(this_year, this_year - (max_years + 1), -1):
             year = str(year)
             years.append((year, year))
@@ -51,7 +50,13 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError("Email address already in use.")
 
-    def validate_date(self, day, month, year):
+    def validate_password(self, password):
+        if len(password.data) < 8:
+            raise ValidationError(
+                "Passwords should be at least 8 characters in length. For memorability, we recommend a phrase or sentence, that isn't well known. For extra security, include a variety of characters such as punctuation, symbols, numbers, capitalization."
+            )
+
+    def validate_day(self, day):
         def years_old(birthdate, date_today):
             years_old = date_today.year - int(birthdate.year)
             if (date_today.month < birthdate.month) or (
@@ -60,6 +65,9 @@ class RegistrationForm(FlaskForm):
                 years_old -= 1
             return years_old
 
+        day = day.data
+        month = self.month.data
+        year = self.year.data
         date_today = datetime.today()
         date_format = "%d, %b, %Y"
         min_years = 13
@@ -71,9 +79,9 @@ class RegistrationForm(FlaskForm):
 
         user_years = years_old(birthdate, date_today)
         if user_years < min_years:
-            raise ValidationError("You are not old enough")
+            raise ValidationError("You are not old enough.")
         if max_years < user_years:
-            raise ValidationError("No one is that old yet")
+            raise ValidationError("No one is that old yet.")
 
     firstname = StringField("First name", validators=[DataRequired()])
     surname = StringField("Surname", validators=[DataRequired()])
