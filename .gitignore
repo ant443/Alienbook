@@ -3,4 +3,4 @@ venv/
 .vscode/
 dev_files/
 app.db
-layout.html
+desktop.ini
