@@ -663,9 +663,9 @@ strong {
 .validation__day:valid ~ .validation__month:valid ~
 .validation__year:valid ~
 .validation__icon,
-.validation__day:focus ~ .validation__icon 
+.validation__day:focus ~ .validation__icon, 
 .validation__month:focus ~ .validation__icon,
-.validation__year:focus ~ .validation__icon {
+.validation__year:focus ~ .validation__icon { 
   display: none;
 }
 
