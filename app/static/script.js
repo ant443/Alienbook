@@ -16,10 +16,21 @@
   if (!rootEl) {
     return;
   }
-  const particlesConfig = "../static/particles.json";
-  particlesJS.load("particles-js", particlesConfig, function () { });
-})();
 
+  (function initParticles() {
+    const particlesConfig = "../static/particles.json";
+    particlesJS.load("particles-js", particlesConfig, function () { });
+  })();
+
+  function stopStartButton() {
+    const toggleValue = !pJSDom[0].pJS.particles.move.enable
+    pJSDom[0].pJS.particles.move.enable = toggleValue;
+    if (toggleValue) {pJSDom[0].pJS.fn.particlesRefresh();}
+  }
+
+  const testBtn = document.getElementById("testBtn");
+  testBtn.addEventListener("click", stopStartButton);
+})();
 
 (function setUpValidation() {
   const formEl = document.querySelector("#form");

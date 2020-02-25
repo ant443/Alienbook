@@ -27,7 +27,10 @@ def index():
     title = "Alienbook - log in or sign up"
     login_form = LoginForm()
     signup_form = RegistrationForm()
+    # testing #
     users = User.query.all()
+    print("Users list: ", list(map(lambda x: x.email, users)), flush=True)
+    # endblock testing #
     if current_user.is_anonymous:
         return render_template(
             "index.html",
