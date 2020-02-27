@@ -216,12 +216,70 @@ strong {
 .particlesImg {
   margin-top: 25px;
   max-width: 500px;
+  position: relative;
 }
 
 .particlesImg__text {
   padding: 15px 0;
   font-size: 1.3em;
   line-height: 1.4em;
+}
+
+.particlesImg__btn {
+  border: 0px;
+  padding: 0px;
+  padding-top: 2px;
+  font-size: .6rem;
+  font-weight: bold;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  background-color: rgba(35, 35, 35, 0.5);
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  position: absolute;
+  top: 270px;
+  left: 4px;
+}
+
+.particlesImg__btn::-moz-focus-inner {
+  border: 0;
+}
+
+.particlesImg__btn:hover {
+  background-color: rgb(35, 35, 35);
+}
+
+.particlesImg__btn:focus {
+  box-shadow: 0 0 1px 2px #85aeff;
+  background-color: rgb(35, 35, 35);
+}
+
+.particlesImg__btn-hide {
+  display: none;
+}
+
+.particlesImg__pauseIcon {
+  display: block;
+  margin: 2px auto 0 auto;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(to right, orange 33%, rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0) 67%, orange 67%);
+}
+
+.particlesImg__playIcon {
+  display: block;
+  margin: 2px 0 0 18px;
+  border-left: 10px solid orange;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.screen-reader-text {
+  color: transparent;
+  font-size: 0;
 }
 
 #particles-js {

@@ -22,14 +22,30 @@
     particlesJS.load("particles-js", particlesConfig, function () { });
   })();
 
-  function stopStartButton() {
-    const toggleValue = !pJSDom[0].pJS.particles.move.enable
-    pJSDom[0].pJS.particles.move.enable = toggleValue;
-    if (toggleValue) {pJSDom[0].pJS.fn.particlesRefresh();}
+  function initPauseBtn(Btn) {
+    Btn.classList.remove("particlesImg__btn-hide");
   }
 
-  const testBtn = document.getElementById("testBtn");
-  testBtn.addEventListener("click", stopStartButton);
+  function pauseBtnClickHandler() {
+    function toggleAnimationState(toggledState) {
+      pJSDom[0].pJS.particles.move.enable = toggledState
+      if (toggledState) {pJSDom[0].pJS.fn.particlesRefresh()}
+    }
+
+    function toggleBtnAppearance(btn, animationState) {
+      btn.childNodes[0].nodeValue = animationState ? "PLAY" : "PAUSE";
+      btn.childNodes[1].classList.toggle("particlesImg__pauseIcon");
+      btn.childNodes[1].classList.toggle("particlesImg__playIcon");
+    }
+    const btn = this;
+    const animationState = pJSDom[0].pJS.particles.move.enable;
+    toggleAnimationState(!animationState);
+    toggleBtnAppearance(btn, animationState);
+  }
+
+  const pauseBtn = document.getElementById("pause-btn");
+  initPauseBtn(pauseBtn);
+  pauseBtn.addEventListener("click", pauseBtnClickHandler, false);
 })();
 
 (function setUpValidation() {
