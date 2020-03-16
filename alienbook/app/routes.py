@@ -120,7 +120,8 @@ def profile(username):
         {"author": user, "body": "Test post #1"},
         {"author": user, "body": "Test post #2"},
     ]
-    return render_template("profile.html", user=user, title=title, posts=posts)
+    is_profile_of_user = current_user == user
+    return render_template("profile.html", user=user, title=title, posts=posts, is_profile_of_user=is_profile_of_user)
 
 
 @app.route("/confirm_email")

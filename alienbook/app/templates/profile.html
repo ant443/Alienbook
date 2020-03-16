@@ -8,4 +8,15 @@
 </div>
 {% endfor %}
 <a href="{{ url_for('delete_account') }}">delete account?</a>
+
+{% if is_profile_of_user %}
+<p>upload profile pic</p>
+<form action="{{ url_for('profile', username=current_user.username) }}">
+  <input type="file" 
+         id="avatar" name="avatar"
+         accept="">
+</form>
+
+{% endif %}
+
 {% endblock content %}
