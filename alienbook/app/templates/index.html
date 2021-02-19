@@ -1,12 +1,15 @@
 {% extends "base.html" %}
-{% import "macros.html" as macros %}
+{% import "forms.html" as forms %}
 
 {% block head %}
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 {% endblock head %}
 
 {% block header %}
-{{ macros.signin("", login_form) }}
+<div class="header__inner">
+  <h1 class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">alienbook</a></h1>
+  {{ forms.signin("", login_form) }}
+</div>
 {% endblock header %}
 
 {% block content %}
@@ -25,7 +28,7 @@
     <section class="signup">
       <h2 class="signup__heading">Create an account</h2>
       <p class="signup__message">It's free and always will be.</p>
-      {{ macros.signup(signup_form) }}
+      {{ forms.signup(signup_form) }}
     </section>
   </div>
 </main>

@@ -13,7 +13,21 @@ class User(UserMixin, db.Model):
     birthdate = db.Column(db.Date)
     gender = db.Column(db.String(8))
     username = db.Column(db.String(133), index=True, unique=True)
-    posts = db.relationship("Post", backref="author", lazy="dynamic")
+    posts = db.relationship("Post", back_populates="user", lazy="dynamic")
+    photo = db.relationship(
+        "Photo", 
+        uselist=False, 
+        back_populates="user",
+        cascade="all, delete-orphan",
+        passive_deletes=True
+        )
+    settings = db.relationship(
+        "Settings", 
+        uselist=False, 
+        back_populates="user", 
+        cascade="all, delete-orphan",
+        passive_deletes=True
+        )
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -31,7 +45,8 @@ class User(UserMixin, db.Model):
                 return True
 
         def get_users(prefix):
-            return User.query.filter(User.username.like(prefix + "%")).all()
+            prefix = prefix.replace('/','//').replace('_', '/_').replace('%','/%')
+            return User.query.filter(User.username.like(prefix + "%", escape='/')).all()
 
         def find_available_int(numeric_strings):
             i = 2
@@ -64,6 +79,29 @@ class Post(db.Model):
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user = db.relationship("User", back_populates="posts")
 
     def __repr__(self):
         return f"<Post {self.body}>"
+
+
+class Photo(db.Model):
+    unsafe_name = db.Column(db.String(256))
+    new_name = db.Column(db.String(40))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow, 
+        onupdate=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete='CASCADE'), 
+        primary_key=True)
+    user = db.relationship("User", back_populates="photo")
+
+    def __repr__(self):
+        return f"<Photo {self.new_name} of {self.user}>"
+
+class Settings(db.Model):
+    preserve_photo_data = db.Column(db.Boolean, default=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete='CASCADE'), 
+        primary_key=True)
+    user = db.relationship("User", back_populates="settings")
+
+    def __repr__(self):
+        return f"<Settings for {self.user}>"

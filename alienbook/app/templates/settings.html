@@ -1,0 +1,38 @@
+{% extends "user_base.html" %}
+
+{% block content %}
+<main class="user-main">
+  <section class="settings">
+    <h1 class="settings__h1">User Settings</h1>
+    <hr class="settings__hr">
+    <form action="{{ url_for('settings') }}" class="settings__form" method="POST">
+      {{ settings_form.hidden_tag() }}
+      <ul>
+        <li class="settings__container">
+          {{ settings_form.photo_metadata.label(class_="settings__label") }}
+          {{ settings_form.photo_metadata(class_="settings__checkbox", **{'checked': ''} if current_user.settings.preserve_photo_data else {}) }}
+        </li>
+        <li class="settings__container">
+          <label for="temp" class="settings__label">placeholder setting(not functional)</label>
+          <input id="temp" checked type="checkbox" class="settings__checkbox">
+        </li>
+      </ul>
+      <div class="settings__save-container">
+        <span class="{{'saved-text' if saved else 'hidden'}}">settings saved</span>
+        {{ settings_form.settings_submit(class_="btn btn--green") }}
+      </div>
+    </form>
+    <hr class="settings__hr">
+    <div class="flex-space-between">
+      <form id="delete_acc_form" action="{{ url_for('settings') }}" method="POST">
+        {{ delete_account_form.csrf_token }}
+        {{ delete_account_form.form_identifier(value="1") }}
+        {{ delete_account_form.delete_acc(class_="btn btn--red") }}
+      </form>
+      <a class="btn-link btn-link--logout" href="{{ url_for('logout') }}">Log Out</a>
+    </div> 
+  </section>
+</main>
+<div class="cover hidden" id="popup-container">
+</div>
+{% endblock content %}

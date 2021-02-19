@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block header %}
-<a href="{{ url_for('signup') }}" class="btn-link btn-link--small btn-link--relative">Sign Up</a>
+<div class="header__inner header__inner--login">
+  <div class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">alienbook</a></div>
+  <a href="{{ url_for('signup') }}" class="btn-link btn-link--small btn-link--relative">Sign Up</a>
+</div>
 {% endblock header %}
 
 {% block content %}
@@ -27,7 +30,7 @@
           entered is incorrect. <strong>Forgotten password?</strong></p>
         {% endif %}
       </div>
-      {{ login_form.submit(class_="login-button")}}
+      {{ login_form.submit(class_="btn btn--login")}}
     </form>
     <div class="login-menu__or">or</div>
     <div>

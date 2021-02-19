@@ -13,6 +13,23 @@
   {% endif %}
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <script src="{{ url_for('static', filename='script_user.js') }}" defer></script>
+
+  {% if current_user.photo %}
+  {% set file_name = current_user.photo.new_name.rpartition(".") %}
+  {% set photo_small = "{}-small.{}".format(file_name[0], file_name[2]) %}
+  <style>
+  :root {
+    --icon-url: url("{{ url_for('download_file', folder_name=current_user.id, filename=photo_small) }}")
+  }
+  </style>
+  {% else %}
+  <style>
+    :root {
+      --icon-url: url("{{ url_for('static', filename='img/user.png') }}")
+    }
+  </style>
+  {% endif %}
+
 </head>
 
 <body class="user-body">
@@ -28,7 +45,7 @@
             <a class="main-nav__profile" href="{{ url_for('profile', username=current_user.username) }}"
               aria-describedby="profile">
               <i class="main-nav__profile-icon"></i>
-              <span class="main-nav__profile-name">{{ current_user.firstname }}</span>
+              <span class="main-nav__profile-name">{{ current_user.firstname.title() }}</span>
             </a>
             <span class="main-nav__tooltip" role="tooltip" id="profile">Profile</span>
           </li>
@@ -40,11 +57,22 @@
             </a>
             <span class="main-nav__tooltip main-nav__tooltip--black">Quick Help</span>
           </li>
-          <li class="main-nav__item" data-tooltip="0">
-            <a href="#" class="main-nav__settings-link">
+          <li class="main-nav__item has-submenu" data-tooltip="0">
+            <a href="{{ url_for('settings') }}" aria-haspopup="true", aria-expanded="false" class="main-nav__settings-link">
               <i class="main-nav__settings-icon" aria-label="Account settings"></i>
             </a>
             <span class="main-nav__tooltip main-nav__tooltip--black">Account Settings</span>
+            <ul class="main-nav__submenu">
+              <li><a class="main-nav__submenu-link" href="">Placeholder</a></li>
+              <hr class="main-nav__hr">
+              <li><a class="main-nav__submenu-link" href="">Longer Placeholder Text</a></li>
+              <hr class="main-nav__hr">
+              <li><a class="main-nav__submenu-link" href="">Placeholder</a></li>
+              <li><a class="main-nav__submenu-link" href="">Placeholder</a></li>
+              <li><a class="main-nav__submenu-link" href="{{ url_for('settings') }}">Settings</a></li>
+              <hr class="main-nav__hr">
+              <li><a class="main-nav__submenu-link" href="{{ url_for('logout') }}">Log Out</a></li>
+            </ul>
           </li>
 
         </ul>
@@ -52,17 +80,17 @@
     </div>
   </header>
 
-  {% with messages = get_flashed_messages() %}
+  {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
-  <ul class=flashes>
-    {% for message in messages %}
-    <li>{{ message }}</li>
+  <h2 class="off-screen">Notifications</h2>
+  <ul class="alert">
+    {% for category, message in messages %}
+    <li class="alert__{{ category }}"><p>{{ message }}</p></li>
     {% endfor %}
   </ul>
   {% endif %}
   {% endwith %}
   {% block content %}{% endblock content %}
-
 </body>
 
 </html>

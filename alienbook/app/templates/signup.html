@@ -1,11 +1,14 @@
 {% extends "base.html" %}
-{% import "macros.html" as macros %}
+{% import "forms.html" as forms %}
 
 {% block header %}
-<button class="login-button login-button--small login-button--float" id="display-login" type="button">Log In
-  to Existing
-  Account</button>
-{{ macros.signin("hidden", login_form) }}
+<div class="header__inner">
+  <div class="text-logo"><a class="text-logo__link" href="{{ url_for('index') }}">alienbook</a></div>
+  <button class="btn btn--login-small btn--login-small--float" id="display-login" type="button">Log In
+    to Existing
+    Account</button>
+  {{ forms.signin("hidden", login_form) }}
+</div>
 {% endblock header %}
 
 {% block content %}
@@ -14,7 +17,7 @@
     <section class="signup">
       <h1 class="signup__heading">Create a new account</h1>
       <p class="signup__message">It's free and always will be.</p>
-      {{ macros.signup(signup_form) }}
+      {{ forms.signup(signup_form) }}
     </section>
   </div>
 </main>

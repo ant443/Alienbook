@@ -1,22 +1,44 @@
 {% extends "user_base.html" %}
 
 {% block content %}
-<h1>{{ user.firstname }}'s profile</h1>
-{% for post in posts %}
-<div>
-  <p>{{ post.author.firstname }} says: <b>{{ post.body }}</b></p>
-</div>
-{% endfor %}
-<a href="{{ url_for('delete_account') }}">delete account?</a>
-
-{% if is_profile_of_user %}
-<p>upload profile pic</p>
-<form action="{{ url_for('profile', username=current_user.username) }}">
-  <input type="file" 
-         id="avatar" name="avatar"
-         accept="">
-</form>
-
+{% if photo_form.errors %}
+<h2 class="off-screen">Notifications (profile msg)</h2>
+<ul class="alert">
+  <li class="alert__message"><p class="">{{ (photo_form.errors.values()|first)[0] }}</p></li>
+</ul>
 {% endif %}
-
+<main class="user-main">
+  <section class="hero">
+      <div class="hero__left">
+      <i class="hero__camera"></i>
+      <div class="photo">
+        <img alt="{{ user.firstname + '\'s photo' if user.photo else user.firstname + ' has no photo' }}" class="photo__img" src="{{ url_for('download_file', folder_name=user.id, filename=user.photo.new_name) if user.photo else url_for('static', filename='img/profile.png') }}">
+        {% if is_profile_of_user %}
+        <form class="photo__form-nojs" data-photo="{{ '1' if user.photo else '0' }}" id="photo" action="{{ url_for('profile', username=current_user.username) }}" method="POST" enctype="multipart/form-data">
+          {{ photo_form.hidden_tag() }}
+          {{ photo_form.photo(accept=".png,.jpg,.jpeg") }}
+          {{ photo_form.submitbtn() }}
+        </form>
+        {% endif %}
+      </div>
+    </div>
+    <div class="hero__middle">
+      <h1 class="hero__title">{{ title }}</h1>
+    </div>
+    <div class="hero__right">
+      <div class="hero__btns">
+        {% if is_profile_of_user %}
+        {% if user.photo %}
+        <form action="{{ url_for('profile', username=current_user.username) }}" method="POST">
+          {{ delete_photo_form.hidden_tag() }}
+          {{ delete_photo_form.deletebtn }}
+        </form>
+        {% endif %}
+        <button class="hero__placeholder-btn" disabled>placeholder</button>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  <nav class="nav2"></nav>
+</main>
 {% endblock content %}

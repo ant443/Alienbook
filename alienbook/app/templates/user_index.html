@@ -1,6 +1,7 @@
 {% extends "user_base.html" %}
 
 {% block content %}
-<h1>Hello {{ current_user.firstname }}.</h1>
-<a href="{{ url_for('logout') }}">temporary logout "button"</a>
+<main class="user-main">
+    <h1>Hello {{ current_user.firstname }}.</h1>
+</main>
 {% endblock content %}

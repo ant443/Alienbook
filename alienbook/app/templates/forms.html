@@ -10,7 +10,7 @@
     {{ form.password(class_="signin__input") }}
   </div>
   {# {{ form.remember_me() }} {{ form.remember_me.label }} #}
-  {{ form.submit(class_="login-button login-button--small login-button--grid-end") }}
+  {{ form.submit(class_="btn btn--login-small btn--login-small--grid") }}
   <a class="signin__link" href="#">Forgotten account?</a>
 </form>
 {% endmacro %}
@@ -24,29 +24,28 @@
   {{ form.hidden_tag() }}
   <div class="signup__inputs-flex">
     <div class="validation__wrapper signup__narrow-inputs">
-      {{ form.firstname(class_="signup__input validation__input", placeholder="First name", required="true", **{"aria-label": "First name"})}}
+      {{ form.firstname(class_="signup__input validation__input", placeholder="First name", **{"aria-label": "First name"})}}
       <i class="validation__icon--signup-layout"></i>
       <p class="validation__msg validation__msg--firstname-layout">What's your name?</p>
     </div>
     <div class="validation__wrapper signup__narrow-inputs">
-      {{ form.surname(class_="signup__input validation__input", placeholder="Surname", required="true", **{"aria-label": "Surname"})}}
+      {{ form.surname(class_="signup__input validation__input", placeholder="Surname", **{"aria-label": "Surname"})}}
       <i class="validation__icon--signup-layout"></i>
       <p class="validation__msg validation__msg--surname-layout">What's your name?</p>
     </div>
   </div>
   <div class="validation__wrapper">
-    {{ form.email(class_="signup__input validation__input", placeholder="Email address", required="true", type="email", **{"aria-label": "Email address"})}}
+    {{ form.email(class_="signup__input validation__input", placeholder="Email address", type="email", **{"aria-label": "Email address"})}}
     <i class="validation__icon--signup-layout"></i>
     <p class="validation__msg validation__msg--signup-layout">You'll use this when you log in and if you ever need
       to
       reset your password.</p>
   </div>
   <div class="validation__wrapper">
-    {{ form.password(class_="signup__input validation__input", placeholder="New password", required="true", **{"aria-label": "New password"})}}
+    {{ form.password(class_="signup__input validation__input", placeholder="New password", **{"aria-label": "New password"})}}
     <i class="validation__icon--signup-layout"></i>
-    <p class="validation__msg validation__msg--signup-layout">Enter a combination of at least six numbers, letters, and
-      punctuation marks (such as !
-      and &).</p>
+    <p class="validation__msg validation__msg--signup-layout">Enter at least 8 characters. 
+      We recommend an unusual phrase or sentence.</p>
   </div>
   <fieldset data-select class="birthdate validation__wrapper">
     <legend class="birthdate__legend">Birthdate</legend>

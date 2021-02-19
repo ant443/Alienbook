@@ -2,5 +2,8 @@ __pycache__/
 venv/
 .vscode/
 dev_files/
+images/
+logs/
 app.db
 desktop.ini
+.env
