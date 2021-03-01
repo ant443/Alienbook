@@ -16,7 +16,7 @@
       <div class="validation__wrapper {{'validation__error' if login_form.email.errors }}">
         {{ login_form.email(class_="login-menu__input validation__input", type="email", placeholder="Email address", autofocus="", **{"aria-label": "Email address"}) }}
         {% if login_form.email.errors %}
-        <i class="validation__icon--login validation__icon--login-layout"></i>
+        <i class="validation__icon validation__icon--login-layout"></i>
         <p class="validation__msg validation__msg--login-layout validation__msg--login">The email address that you've
           entered doesn't match any account. <strong>Sign up for an account.</strong></p>
         {% endif %}
@@ -25,7 +25,7 @@
         class="validation__wrapper {{'validation__error' if not login_form.email.errors and login_form.password.errors }}">
         {{ login_form.password(class_="login-menu__input validation__input", placeholder="Password", **{"aria-label": "password"}) }}
         {% if not login_form.email.errors and login_form.password.errors %}
-        <i class="validation__icon--login validation__icon--login-layout"></i>
+        <i class="validation__icon validation__icon--login-layout"></i>
         <p class="validation__msg validation__msg--login-layout validation__msg--login">The password that you've
           entered is incorrect. <strong>Forgotten password?</strong></p>
         {% endif %}

@@ -8,11 +8,11 @@
 /* 558: login.html */
 /* 635: signup.html */
 /* 641: front end validation */
-/* 840: Multi-page and logged in */
-/* 852: user_base.html */
-/* 1047: confirm_email.html */
-/* 1146: profile.html */
-/* 1269: settings.html */
+/* 829: Multi-page and logged in */
+/* 841: user_base.html */
+/* 1036: confirm_email.html */
+/* 1135: profile.html */
+/* 1258: settings.html */
 /* //////////////////////////////////////////////// */
 
 /* Generic styles */
@@ -824,17 +824,6 @@ strong {
 .validation__input--border:focus {
   border: 1px solid #dddfe2;
   border-radius: 0;
-}
-
-.validation__input:focus ~ .validation__icon--login {
-  display: none;
-}
-
-.validation__icon--login {
-  background-image: url("img/my_warning.png");
-  height: 23px;
-  width: 24px;
-  pointer-events: none;
 }
 
 /* Multi-page and logged in */
