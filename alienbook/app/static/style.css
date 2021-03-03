@@ -797,7 +797,7 @@ strong {
 }
 
 .validation__icon {
-  background-image: url("img/my_warning.png");
+  background-image: url("img/warning.png");
   height: 23px;
   width: 24px;
   pointer-events: none;
